@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { Text, Input, Button } from 'react-native-elements';
 import styles from '../../style/MainStyle';
+import UsuarioService from '../../services/UsuarioService';
 
 export default function Login({navigation}) {
 
@@ -9,10 +10,29 @@ export default function Login({navigation}) {
   const [senha, setSenha] = useState(null)
 
   const entrar = () => {
-    navigation.reset({
-      index: 0,
-      routes: [{name: "Menu"}]
+    
+    let data = {
+      txEmail: email,
+      txSenha: senha
+    }
+
+    UsuarioService.login(data)
+    .then((response) => {
+      navigation.reset({
+        index: 0,
+        routes: [{name: "Menu"}]
+      })
     })
+    .catch((error) => {
+      setLoading(false)
+      Alert.alert("Houve um erro inesperado") 
+    })
+    
+    
+  }
+
+  const cadastrar = () => {
+      navigation.navigate("Cadastro")
   }
 
   return (
@@ -34,11 +54,28 @@ export default function Login({navigation}) {
       />
 
       <Button title="Entrar" 
+        containerStyle={{
+          width: 200,
+          marginHorizontal: 50,
+          marginVertical: 10,
+        }}
         buttonStyle={{
           backgroundColor: 'rgba(8, 69, 80, 1)',
-          borderRadius: 5,
+          borderRadius: 8,
         }}
         onPress={() => entrar()}/>
+
+      <Button title="Cadastrar" 
+        containerStyle={{
+          width: 200,
+          marginHorizontal: 50,
+          marginVertical: 10,
+        }}
+        buttonStyle={{
+          backgroundColor: 'rgba(8, 69, 80, 1)',
+          borderRadius: 8,
+        }}
+        onPress={() => cadastrar()}/>
     </View>
   );
 }
