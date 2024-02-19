@@ -1,41 +1,42 @@
 import axios from "axios";
 
-class UsuarioService{
+class UsuarioService {
 
     constructor() {
         this.token = null;
+        this.cdUsuario = null;
+        this.baseURL = "http://192.168.3.36:8080"; // URL base da API
+        this.timeout = 5000; // Timeout padrão para as requisições
     }
 
-    async cadastrar(data){
-        return axios({
-            url: "http://192.168.3.36:8080/auth/register",
-            method: "POST",
-            timeout: 5000,
-            data: data,
-            headers: {
-                Accept: 'application/json'
-            }
-        }).then((response) => {
-            return Promise.resolve(response)
-        }).catch((error) => {
-            return Promise.reject(error)
-        })
+    async cadastrar(data) {
+        try {
+            const response = await axios.post(`${this.baseURL}/auth/register`, data, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json'
+                }
+            });
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
     }
 
     async login(data) {
         try {
-            const response = await axios({
-                url: "http://192.168.3.36:8080/auth/login",
-                method: "POST",
-                timeout: 5000,
-                data: data,
+            const response = await axios.post(`${this.baseURL}/auth/login`, data, {
+                timeout: this.timeout,
                 headers: {
                     Accept: 'application/json'
                 }
             });
 
-            // Armazene o token globalmente
             this.token = response.data.token;
+            this.cdUsuario = response.data.cdUsuario;
+            console.log(this.token)
+            console.log(this.cdUsuario)
+            console.log(response.data)
             return this.token;
         } catch (error) {
             return Promise.reject(error);
@@ -44,22 +45,38 @@ class UsuarioService{
 
     async getUsers() {
         try {
-            const response = await axios({
-                url: "http://192.168.3.36:8080/usuario/pesquisa",
-                method: "GET",
-                timeout: 5000,
+            const response = await axios.get(`${this.baseURL}/usuario/pesquisa`, {
+                timeout: this.timeout,
                 headers: {
                     Accept: 'application/json',
-                    Authorization: `Bearer ${this.token}` // Incluindo o token no cabeçalho de autorização
+                    Authorization: `Bearer ${this.token}`
                 }
             });
 
-            return response.data; // Retornando os dados dos usuários
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    async getUser() {
+        try {
+            console.log(this.token)
+            console.log(this.cdUsuario)
+            const response = await axios.get(`${this.baseURL}/usuario/${this.cdUsuario}`, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
+
+            return response.data;
         } catch (error) {
             return Promise.reject(error);
         }
     }
 }
 
-const usuarioService = new UsuarioService()
-export default usuarioService
+const usuarioService = new UsuarioService();
+export default usuarioService;

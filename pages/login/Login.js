@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { Text, Input, Button } from 'react-native-elements';
 import styles from '../../style/MainStyle';
 import UsuarioService from '../../services/UsuarioService';
@@ -24,7 +24,6 @@ export default function Login({navigation}) {
       })
     })
     .catch((error) => {
-      setLoading(false)
       Alert.alert("Houve um erro inesperado") 
     })
     
