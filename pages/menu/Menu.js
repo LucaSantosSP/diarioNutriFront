@@ -4,6 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import UsuarioService from '../../services/UsuarioService';
+import { Button } from 'react-native-elements';
+import Perfil from '../perfil/Perfil';
+import Receitas from '../receitas/receitas';
+import NovoAlimento from '../alimentos/NovoAlimento';
+import Historico from '../historico/Historico';
 
 function UserList() {
   const [users, setUsers] = useState([]); // Estado para armazenar os usuários
@@ -35,22 +40,6 @@ function UserList() {
   );
 }
 
-function Profile() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Profile!</Text>
-    </View>
-  );
-}
-
-function Notifications() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Notifications!</Text>
-    </View>
-  );
-}
-
 const Tab = createBottomTabNavigator();
 
 export default function Menu() {
@@ -58,11 +47,11 @@ export default function Menu() {
       <Tab.Navigator
         initialRouteName="Feed"
         screenOptions={{
-          tabBarActiveTintColor: '#e91e63',
+          tabBarActiveTintColor: '#084550',
         }}
       >
         <Tab.Screen
-          name="Feed"
+          name="Home"
           component={UserList} // Substituído Feed por UserList
           options={{
             tabBarLabel: 'Home',
@@ -72,20 +61,40 @@ export default function Menu() {
           }}
         />
         <Tab.Screen
-          name="Notifications"
-          component={Notifications}
+          name="Receitas"
+          component={Receitas}
           options={{
-            tabBarLabel: 'Alimentos',
+            tabBarLabel: 'Receitas',
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="bell" color={color} size={size} />
             ),
           }}
         />
         <Tab.Screen
-          name="Profile"
-          component={Profile}
+          name="NovoAlimento"
+          component={NovoAlimento}
           options={{
-            tabBarLabel: 'Profile',
+            tabBarLabel: 'NovoAlimento',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="plus" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Historico"
+          component={Historico}
+          options={{
+            tabBarLabel: 'Histórico',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="calendar" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Perfil"
+          component={Perfil}
+          options={{
+            tabBarLabel: 'Perfil',
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="account" color={color} size={size} />
             ),
