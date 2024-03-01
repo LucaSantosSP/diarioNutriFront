@@ -5,7 +5,7 @@ import styles from './style/MainStyle';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Login from './pages/login/Login';
-import Menu from './pages/menu/Menu';
+import Menu from './pages/principal/Principal';
 import Cadastro from './pages/cadastro/Cadastro';
 
 const Stack = createStackNavigator();
