@@ -75,7 +75,7 @@ export default function Menu() {
           name="Notifications"
           component={Notifications}
           options={{
-            tabBarLabel: 'Updates',
+            tabBarLabel: 'Alimentos',
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="bell" color={color} size={size} />
             ),
