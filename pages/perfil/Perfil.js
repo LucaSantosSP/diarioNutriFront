@@ -1,23 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { View } from 'react-native';
+import { Button, Text} from 'react-native-elements';
 import UsuarioService from '../../services/UsuarioService';
-import { Button } from 'react-native-elements';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function Perfil({navigation}) {
 
     const logout = (navigation) => {
-        navigation.reset({
-          index: 0,
-          routes: [{name: "Login"}]
-        })
-      } 
+      navigation.reset({
+        index: 0,
+        routes: [{name: "Login"}]
+      })
+    } 
+
+    const [tabUsuarioObj, setTabUsuarioObj] = useState([]); // Estado para armazenar os usuários
+  
+    useEffect(() => {
+      // Função para carregar informações do usuário
+      async function loadUsers() {
+        try {
+          const user = await UsuarioService.getUser();
+          setTabUsuarioObj(user);
+        } catch (error) {
+          console.error('Erro ao carregar os usuários:', error);
+        }
+      }
+
+      loadUsers();
+    }, []);
+  
 
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Profile!</Text>
+        <Text h4 h4Style={{color: 'rgba(0, 151, 178, 1)',}} key={tabUsuarioObj.cdUsuario}>{tabUsuarioObj.txUsuario}</Text>
+
+        <Text > Altura: {tabUsuarioObj.vlAltura} | Sexo: {tabUsuarioObj.ckSexo}</Text>
+        <Text></Text>
+
+        <Text h4 h4Style={{color: 'rgba(0, 151, 178, 1)'}}><MaterialCommunityIcons name="weight-lifter" color={{color: 'rgba(0, 151, 178, 1)'}}  />Meu corpo</Text>
+        <Text > Peso: {tabUsuarioObj.vlPeso} Kg</Text>
+
         <Button title="Logout" 
           containerStyle={{
             width: 200,

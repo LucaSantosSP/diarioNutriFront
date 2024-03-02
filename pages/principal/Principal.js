@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Perfil from '../perfil/Perfil';
-import Receitas from '../receitas/receitas';
 import NovoAlimento from '../alimentos/NovoAlimento';
 import Historico from '../historico/Historico';
 import Menu from '../menu/Menu';
@@ -16,25 +15,20 @@ export default function Principal() {
         initialRouteName="Feed"
         screenOptions={{
           tabBarActiveTintColor: '#084550',
+          headerStyle: { backgroundColor: '#084550' }, 
+          headerTintColor: '#fff', 
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
         }}
       >
         <Tab.Screen
           name="Menu"
-          component={Menu} // Substituído Feed por UserList
+          component={Menu} 
           options={{
             tabBarLabel: 'Menu',
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="home" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Receitas"
-          component={Receitas}
-          options={{
-            tabBarLabel: 'Receitas',
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="bell" color={color} size={size} />
             ),
           }}
         />

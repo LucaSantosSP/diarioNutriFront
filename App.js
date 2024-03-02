@@ -14,7 +14,7 @@ function MyStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Menu" component={Menu} />
+      <Stack.Screen name="Menu" component={Menu} options={{ headerShown: false }}/>
       <Stack.Screen name="Cadastro" component={Cadastro} />
     </Stack.Navigator>
   );
