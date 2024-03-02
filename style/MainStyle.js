@@ -22,7 +22,14 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       marginLeft: 10,
       marginRight: 10
-    }
+    },
+    containerBranco: {
+      width: '100%', 
+      backgroundColor: 'white', 
+      paddingHorizontal: 20, 
+      paddingVertical: 10,
+      marginTop: 20,
+    },
   });
 
   export default styles
