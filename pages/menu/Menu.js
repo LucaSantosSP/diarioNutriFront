@@ -1,33 +1,77 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View } from 'react-native';
+import { View, Image } from 'react-native';
+import { Text} from 'react-native-elements';
 import UsuarioService from '../../services/UsuarioService';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import menuStyle from './MenuStyle';
 
 export default function Menu() {
-    const [users, setUsers] = useState([]); // Estado para armazenar os usuários
+    const [tabUsuarioObj, setTabUsuarioObj] = useState([]);
+    const foto = tabUsuarioObj.txFoto ? { uri: tabUsuarioObj.txFoto } : require('../../images/dafaultUsuario.png');
   
     useEffect(() => {
-      // Função para carregar os usuários
-      async function loadUsers() {
+      // Função para carregar informações do usuário
+      async function loadUser() {
         try {
-          // Obtenha os usuários do serviço de usuário
-          const userList = await UsuarioService.getUsers();
-          // Atualize o estado com a lista de usuários
-          setUsers(userList);
+          const user = await UsuarioService.getUser();
+          setTabUsuarioObj(user);
         } catch (error) {
           console.error('Erro ao carregar os usuários:', error);
         }
       }
-  
-      // Carregue os usuários quando o componente for montado
-      loadUsers();
-    }, []); // A dependência vazia garante que isso só seja executado uma vez ao montar o componente
+
+      loadUser();
+    }, []);
   
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Lista de Usuários</Text>
-        {users.map(user => (
-          <Text key={user.cdUsuario}>{user.cdUsuario} - {user.txUsuario}</Text> // Supondo que cada usuário tenha um atributo "name" e um "id"
-        ))}
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
+        <View style={menuStyle.header}>
+        <Image
+          source={foto}
+          style={menuStyle.imagem}
+        />
+          <View>
+            <Text h4 h4Style={{ color: 'white' }}>Olá,</Text>
+            <Text h4 h4Style={{ color: '#8EAAAF', fontSize: 14 }}>{tabUsuarioObj.txUsuario}</Text>
+          </View>
+        </View>
+
+        <View style={menuStyle.containerBranco}>
+        <Text h4 h4Style={{color: 'rgba(0, 151, 178, 1)', marginBottom: 5}}><MaterialCommunityIcons name="notebook-edit" size={25} color={{color: 'rgba(0, 151, 178, 1)'}}/> Resumo</Text>
+          <View style={menuStyle.table}>
+          <View style={menuStyle.firstRow}>
+              <Text style={menuStyle.firstCell}>Macronutrientes</Text>
+              <Text style={[menuStyle.cellRigth, menuStyle.corTitulo]}>  </Text>
+            </View>
+            <View style={menuStyle.row}>
+              <Text style={menuStyle.cellLeft}>Proteína</Text>
+              <Text style={[menuStyle.cellRigth, menuStyle.corTitulo]}> % </Text>
+            </View>
+            <View style={menuStyle.row}>
+              <Text style={[menuStyle.cellLeft, menuStyle.corTitulo]}>Carboidratos</Text>
+              <Text style={menuStyle.cellRigth}> % </Text>
+            </View>
+            <View style={menuStyle.row}>
+              <Text style={[menuStyle.cellLeft, menuStyle.corTitulo]}>Gordura</Text>
+              <Text style={menuStyle.cellRigth}> % </Text>
+            </View>
+            <View style={menuStyle.rowLast}>
+              <Text style={[menuStyle.cellLeft, menuStyle.corTitulo]}>Calorias total</Text>
+              <Text style={menuStyle.cellRigth}> Kcal </Text>
+            </View>
+            <View style={menuStyle.row}>
+              <Text style={[menuStyle.cellLeft, menuStyle.corTitulo]}>Água total</Text>
+              <Text style={menuStyle.cellRigth}> ml </Text>
+            </View>
+          </View>
+        </View>
+
+        <View style={menuStyle.containerBranco}>
+          <Text h4 h4Style={{color: 'rgba(0, 151, 178, 1)', marginBottom: 5}}><MaterialCommunityIcons name="silverware-variant" size={25} color={{color: 'rgba(0, 151, 178, 1)'}}/> Refeições</Text>
+          
+        </View>
+        
+
       </View>
     );
   }

@@ -15,7 +15,7 @@ export default function Perfil({navigation}) {
       })
     } 
 
-    const [tabUsuarioObj, setTabUsuarioObj] = useState([]); // Estado para armazenar os usuários
+    const [tabUsuarioObj, setTabUsuarioObj] = useState([]); 
   
     useEffect(() => {
       // Função para carregar informações do usuário

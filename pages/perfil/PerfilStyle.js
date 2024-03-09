@@ -14,6 +14,7 @@ const perfilStyle = StyleSheet.create({
         marginBottom: 20,
         backgroundColor: 'rgba(243, 243, 243, 1)',
         padding: 5,
+        borderRadius: 8,
     },
     row: {
         flexDirection: 'row',
