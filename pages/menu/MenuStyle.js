@@ -4,7 +4,6 @@ const menuStyle = StyleSheet.create({
     //Header
     header: {
         backgroundColor: '#084550',
-        position: 'absolute', 
         top: 0, 
         left: 0, 
         width: '100%',

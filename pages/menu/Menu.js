@@ -8,6 +8,7 @@ import menuStyle from './MenuStyle';
 export default function Menu() {
     const [tabUsuarioObj, setTabUsuarioObj] = useState([]);
     const foto = tabUsuarioObj.txFoto ? { uri: tabUsuarioObj.txFoto } : require('../../images/dafaultUsuario.png');
+    const [tiposRefeicao, setTipoRefeicao] = useState([]);
   
     useEffect(() => {
       // Função para carregar informações do usuário
@@ -22,6 +23,18 @@ export default function Menu() {
 
       loadUser();
     }, []);
+
+      useEffect(() => {
+        async function loadtiposRefeicao() {
+          try {
+            const refeicoesList = await UsuarioService.getRefeicoes();
+            setTipoRefeicao(refeicoesList);
+          } catch (error) {
+            console.error('Erro ao carregar os refeições:', error);
+          }
+        }
+        loadtiposRefeicao();
+      }, []);
   
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
@@ -70,6 +83,11 @@ export default function Menu() {
           <Text h4 h4Style={{color: 'rgba(0, 151, 178, 1)', marginBottom: 5}}><MaterialCommunityIcons name="silverware-variant" size={25} color={{color: 'rgba(0, 151, 178, 1)'}}/> Refeições</Text>
           
         </View>
+
+        <Text>Lista de refeições</Text>
+        {tiposRefeicao.map(tipoRefeicao => (
+          <Text key={tipoRefeicao.cdRefeicaoTipo}>{tipoRefeicao.txRefeicaoTipo}</Text> 
+        ))}
         
 
       </View>
