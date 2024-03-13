@@ -81,7 +81,7 @@ class UsuarioService {
         try {
             console.log(this.token)
             console.log(this.cdUsuario)
-            const response = await axios.get(`${this.baseURL}/refeicaotipo/pesquisaByUsuario/${this.cdUsuario}`, {
+            const response = await axios.get(`${this.baseURL}/refeicao/refeicaodia/${this.cdUsuario}`, {
                 timeout: this.timeout,
                 headers: {
                     Accept: 'application/json',

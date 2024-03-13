@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { View, Image, ScrollView } from 'react-native';
-import { Text} from 'react-native-elements';
+import { Text, Button } from 'react-native-elements';
 import UsuarioService from '../../services/UsuarioService';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import menuStyle from './MenuStyle';
 
-export default function Menu() {
+export default function Menu({navigation}) {
     const [tabUsuarioObj, setTabUsuarioObj] = useState([]);
     const foto = tabUsuarioObj.txFoto ? { uri: tabUsuarioObj.txFoto } : require('../../images/dafaultUsuario.png');
-    const [tiposRefeicao, setTipoRefeicao] = useState([]);
+    const [refeicoes, setRefeicoes] = useState([]);
+
+    const logout = (navigation) => {
+      navigation.reset({
+        index: 0,
+        routes: [{name: "Login"}]
+      })
+    } 
   
     useEffect(() => {
       // Função para carregar informações do usuário
@@ -25,15 +32,15 @@ export default function Menu() {
     }, []);
 
       useEffect(() => {
-        async function loadtiposRefeicao() {
+        async function loadRefeicoes() {
           try {
             const refeicoesList = await UsuarioService.getRefeicoes();
-            setTipoRefeicao(refeicoesList);
+            setRefeicoes(refeicoesList);
           } catch (error) {
             console.error('Erro ao carregar os refeições:', error);
           }
         }
-        loadtiposRefeicao();
+        loadRefeicoes();
       }, []);
   
     return (
@@ -87,10 +94,29 @@ export default function Menu() {
             
           </View>
 
-          <Text>Lista de refeições</Text>
-          {tiposRefeicao.map(tipoRefeicao => (
-            <Text key={tipoRefeicao.cdRefeicaoTipo}>{tipoRefeicao.txRefeicaoTipo}</Text> 
+          {refeicoes.map(refeicao => (
+            /*<Button  title=""
+            containerStyle={{
+              width: 200,
+              marginHorizontal: 50,
+              marginVertical: 10,
+            }}
+            buttonStyle={{
+              backgroundColor: 'rgba(8, 69, 80, 1)',
+              borderRadius: 8,
+            }}
+            onPress={() => logout(navigation)}/>*/
+            <View style={menuStyle.cardRefeicao} key={refeicao.cdRefeicao} onPress={() => logout(navigation)}>
+              <MaterialCommunityIcons name="food-variant" size={45} color="rgba(255, 255, 255, 1)" />  
+                <View> 
+                  <Text style={menuStyle.textoRefeicao}>    {refeicao.txRefeicao}</Text> 
+                  <Text style={menuStyle.horaRefeicao}>    00:00</Text> 
+                </View>
+            </View>
+
           ))}
+
+          
         
         </View>
       </ScrollView >
