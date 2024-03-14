@@ -7,6 +7,7 @@ const perfilStyle = StyleSheet.create({
         width: 180,
         height: 180,
         borderRadius: 100,
+        marginTop: 20,
     },
 
     //Tabela default 

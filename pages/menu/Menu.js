@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { View, Image, ScrollView } from 'react-native';
-import { Text, Button } from 'react-native-elements';
+import { View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { Text } from 'react-native-elements';
 import UsuarioService from '../../services/UsuarioService';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import menuStyle from './MenuStyle';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Menu({navigation}) {
     const [tabUsuarioObj, setTabUsuarioObj] = useState([]);
     const foto = tabUsuarioObj.txFoto ? { uri: tabUsuarioObj.txFoto } : require('../../images/dafaultUsuario.png');
     const [refeicoes, setRefeicoes] = useState([]);
 
-    const logout = (navigation) => {
-      navigation.reset({
-        index: 0,
-        routes: [{name: "Login"}]
-      })
-    } 
+    const navigateToRefeicao = (key) => {
+      navigation.navigate('Refeicao', { key });
+    };
   
     useEffect(() => {
       // Função para carregar informações do usuário
@@ -95,23 +93,14 @@ export default function Menu({navigation}) {
           </View>
 
           {refeicoes.map(refeicao => (
-            /*<Button  title=""
-            containerStyle={{
-              width: 200,
-              marginHorizontal: 50,
-              marginVertical: 10,
-            }}
-            buttonStyle={{
-              backgroundColor: 'rgba(8, 69, 80, 1)',
-              borderRadius: 8,
-            }}
-            onPress={() => logout(navigation)}/>*/
-            <View style={menuStyle.cardRefeicao} key={refeicao.cdRefeicao} onPress={() => logout(navigation)}>
-              <MaterialCommunityIcons name="food-variant" size={45} color="rgba(255, 255, 255, 1)" />  
-                <View> 
+            <View style={menuStyle.cardRefeicao} key={refeicao.cdRefeicao}>
+              <TouchableOpacity onPress={() => navigateToRefeicao(refeicao.cdRefeicao)}>
+                <MaterialCommunityIcons name="food-variant" size={45} color="rgba(255, 255, 255, 1)" />  
+              </TouchableOpacity>            
+                <TouchableOpacity onPress={() => navigateToRefeicao(refeicao.cdRefeicao)}>
                   <Text style={menuStyle.textoRefeicao}>    {refeicao.txRefeicao}</Text> 
                   <Text style={menuStyle.horaRefeicao}>    00:00</Text> 
-                </View>
+                </TouchableOpacity>
             </View>
 
           ))}

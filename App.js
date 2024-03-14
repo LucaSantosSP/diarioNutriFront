@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Login from './pages/login/Login';
 import Menu from './pages/principal/Principal';
 import Cadastro from './pages/cadastro/Cadastro';
+import Refeicao from './pages/refeicao/Refeicao';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ function MyStack() {
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Menu" component={Menu} options={{ headerShown: false }}/>
       <Stack.Screen name="Cadastro" component={Cadastro} />
+      <Stack.Screen name="Refeicao" component={Refeicao} />
     </Stack.Navigator>
   );
 }
