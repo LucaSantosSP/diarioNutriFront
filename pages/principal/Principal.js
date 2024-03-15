@@ -71,7 +71,15 @@ function MainTabNavigator() {
 
 export default function Principal() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: '#084550',
+        headerStyle: { backgroundColor: '#084550' }, 
+        headerTintColor: '#fff', 
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}>
       <Stack.Screen name="Main" component={MainTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="Refeicao" component={Refeicao} />
       <Stack.Screen name="NavigationButtons" component={NavigationButtons} />

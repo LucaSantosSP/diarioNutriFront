@@ -13,7 +13,16 @@ const Stack = createStackNavigator();
 
 function MyStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+    initialRouteName="Menu"
+    screenOptions={{
+      tabBarActiveTintColor: '#084550',
+      headerStyle: { backgroundColor: '#084550' }, 
+      headerTintColor: '#fff', 
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }}>
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Menu" component={Menu} options={{ headerShown: false }}/>
       <Stack.Screen name="Cadastro" component={Cadastro} />
