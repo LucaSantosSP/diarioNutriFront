@@ -95,7 +95,7 @@ export default function Menu({navigation}) {
           {refeicoes.map(refeicao => (
             <View style={menuStyle.cardRefeicao} key={refeicao.cdRefeicao}>
               <TouchableOpacity onPress={() => navigateToRefeicao(refeicao.cdRefeicao)}>
-                <MaterialCommunityIcons name="food-variant" size={45} color="rgba(255, 255, 255, 1)" />  
+                <MaterialCommunityIcons name={refeicao.txIcon} size={45} color="rgba(255, 255, 255, 1)" />  
               </TouchableOpacity>            
                 <TouchableOpacity onPress={() => navigateToRefeicao(refeicao.cdRefeicao)}>
                   <Text style={menuStyle.textoRefeicao}>    {refeicao.txRefeicao}</Text> 
