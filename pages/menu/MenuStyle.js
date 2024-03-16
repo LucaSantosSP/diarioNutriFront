@@ -4,7 +4,6 @@ const menuStyle = StyleSheet.create({
     //Header
     header: {
         backgroundColor: '#084550',
-        position: 'absolute', 
         top: 0, 
         left: 0, 
         width: '100%',
@@ -27,7 +26,7 @@ const menuStyle = StyleSheet.create({
         paddingHorizontal: 20, 
         paddingVertical: 10,
         marginTop: 20,
-      },
+    },
 
     table: {
         marginBottom: 10,
@@ -80,6 +79,26 @@ const menuStyle = StyleSheet.create({
         color: '#084550',
         fontSize: 18,
         fontWeight: 'bold',
+    },
+
+    //Card Refeições 
+    cardRefeicao: {
+        flexDirection: 'row', 
+        alignItems: 'center',
+        width: '90%',
+        height: 80, 
+        backgroundColor: '#0F9DB6', 
+        paddingHorizontal: 20, 
+        paddingVertical: 10,
+        marginBottom: 20,
+        borderRadius: 8,
+    },
+    textoRefeicao: {
+        color: '#fff',
+        fontWeight: 'bold',
+    },
+    horaRefeicao: {
+        color: '#fff'
     },
 });
 
