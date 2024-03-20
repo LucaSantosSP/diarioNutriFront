@@ -10,31 +10,70 @@ export default function Refeicao({ route }) {
   const { key } = route.params;
 
   return (
-    <ScrollView style={{ flex: 1 }}>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>{key}!</Text>
+    <View style={{ flex: 1 }}>
+      <ScrollView>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>{key}!</Text>
 
-        <View style={refeicaoStyle.containerBranco}>
-          <View style={refeicaoStyle.table}>
-            <View style={refeicaoStyle.firstRow}>
-              <Text style={refeicaoStyle.firstCell}>Lista de alimentos</Text>
-            </View>
-            <View style={refeicaoStyle.row}>
-              <Text style={refeicaoStyle.cellLeft}>Ovo</Text>
-              <Text style={[refeicaoStyle.cellRigth, refeicaoStyle.corTitulo]}> Mais </Text>
+          <View style={refeicaoStyle.containerBranco}>
+            <View style={refeicaoStyle.table}>
+              <View style={refeicaoStyle.firstRow}>
+                <Text style={refeicaoStyle.firstCell}>Lista de alimentos</Text>
+              </View>
+              <View style={refeicaoStyle.row}>
+                <Text style={refeicaoStyle.cellLeft}>Ovo</Text>
+                <Text style={[refeicaoStyle.cellRigth, refeicaoStyle.corTitulo]}> Mais </Text>
+              </View>
             </View>
           </View>
-        </View>
 
-        <Text></Text>
-        <Text></Text>
-        <Text></Text>
-        <Text></Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
+          <Text>l</Text>
 
-        <View style={refeicaoStyle.navigationContainer}>
-          <NavigationButtons navigation={navigation} />
+          
         </View>
+      </ScrollView>
+      <View style={refeicaoStyle.navigationContainer}>
+        <NavigationButtons navigation={navigation} />
       </View>
-    </ScrollView>
+    </View>
   );
 };
