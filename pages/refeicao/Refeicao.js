@@ -10,63 +10,30 @@ export default function Refeicao({ route }) {
   const { key } = route.params;
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: 'white',  }}>
       <ScrollView>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>{key}!</Text>
 
           <View style={refeicaoStyle.containerBranco}>
             <View style={refeicaoStyle.table}>
               <View style={refeicaoStyle.firstRow}>
                 <Text style={refeicaoStyle.firstCell}>Lista de alimentos</Text>
               </View>
+              
               <View style={refeicaoStyle.row}>
-                <Text style={refeicaoStyle.cellLeft}>Ovo</Text>
-                <Text style={[refeicaoStyle.cellRigth, refeicaoStyle.corTitulo]}> Mais </Text>
+                <View style={refeicaoStyle.cellLeft}>
+                  <Text style={refeicaoStyle.firstTextCellLeft}>Ovo</Text>
+                  <Text style={refeicaoStyle.secondTextCellLeft}>100 gramas - 541 Kcal</Text>
+                </View>
+                <View style={[refeicaoStyle.cellRigth, refeicaoStyle.corTitulo]}>
+                  <Text style={[refeicaoStyle.textCellRigth]}>Mais</Text>
+                  <Text></Text>
+                </View>
               </View>
+
             </View>
           </View>
 
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
-          <Text>l</Text>
 
           
         </View>

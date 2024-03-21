@@ -48,8 +48,8 @@ const refeicaoStyle = StyleSheet.create({
         textAlign: 'left',
         lineHeight: 30,
         marginLeft: 15,
-        color: '#084550',
-        fontSize: 18,
+        color: '#0F9DB6',
+        fontSize: 20,
         fontWeight: 'bold',
     },
     cellLeft: {
@@ -57,18 +57,27 @@ const refeicaoStyle = StyleSheet.create({
         textAlign: 'left',
         lineHeight: 30,
         marginLeft: 15,
+    },
+    firstTextCellLeft: {
+        flex: 1,
+        textAlign: 'left',
         color: '#0F9DB6',
         fontSize: 18,
     },
-    cellRigth: {
+    secondTextCellLeft: {
         flex: 1,
         textAlign: 'left',
-        lineHeight: 30,
-        marginLeft: 15,
-        color: '#084550',
-        fontSize: 18,
-        fontWeight: 'bold',
+        color: '#6D6D6D',
+        fontSize: 16,
     },
+    cellRigth: {
+        marginRight: 15,
+    },
+    textCellRigth: {
+        color: '#6D6D6D',
+        fontSize: 18,
+        textDecorationLine: 'underline',
+    }
 });
 
 export default refeicaoStyle
