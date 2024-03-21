@@ -70,7 +70,15 @@ const refeicaoStyle = StyleSheet.create({
         color: '#6D6D6D',
         fontSize: 18,
         textDecorationLine: 'underline',
-    }
+    },
+
+    semAlimento: {
+        flex: 1,
+        textAlign: 'left',
+        color: '#6D6D6D',
+        fontSize: 16,
+        marginHorizontal: 15,
+    },
 });
 
 export default refeicaoStyle

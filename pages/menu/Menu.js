@@ -22,24 +22,24 @@ export default function Menu({navigation}) {
           const user = await UsuarioService.getUser();
           setTabUsuarioObj(user);
         } catch (error) {
-          console.error('Erro ao carregar os usuários:', error);
+          console.error('Erro ao carregar o usuário:', error);
         }
       }
 
       loadUser();
     }, []);
 
-      useEffect(() => {
-        async function loadRefeicoes() {
-          try {
-            const refeicoesList = await UsuarioService.getRefeicoes();
-            setRefeicoes(refeicoesList);
-          } catch (error) {
-            console.error('Erro ao carregar os refeições:', error);
-          }
+    useEffect(() => {
+      async function loadRefeicoes() {
+        try {
+          const refeicoesList = await UsuarioService.getRefeicoes();
+          setRefeicoes(refeicoesList);
+        } catch (error) {
+          console.error('Erro ao carregar os refeições:', error);
         }
-        loadRefeicoes();
-      }, []);
+      }
+      loadRefeicoes();
+    }, []);
   
     return (
       <ScrollView>
