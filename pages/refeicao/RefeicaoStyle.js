@@ -8,8 +8,8 @@ const refeicaoStyle = StyleSheet.create({
         right: 0,
     },
 
-    //Tabela default 
-    containerBranco: {
+    //Tabela alimentos
+    containerCinza: {
         width: '100%', 
         backgroundColor: 'white', 
         paddingHorizontal: 20, 
@@ -17,33 +17,26 @@ const refeicaoStyle = StyleSheet.create({
         marginTop: 20,
     },
 
-    table: {
+    tableAlimentos: {
         marginBottom: 10,
         backgroundColor: 'rgba(243, 243, 243, 1)',
         padding: 5,
         paddingBottom: 20,
         borderRadius: 8,
     },
-    firstRow: {
+    firstRowAlimentos: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingVertical: 8,
     },
-    row: {
+    rowAlimentos: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderBottomWidth: 1,
         borderBottomColor: '#084550',
         paddingVertical: 8,
     },
-    rowLast: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        borderBottomWidth: 3,
-        borderBottomColor: '#084550',
-        paddingVertical: 8,
-    },
-    firstCell: {
+    firstCellAlimentos: {
         flex: 1,
         textAlign: 'left',
         lineHeight: 30,
@@ -52,7 +45,7 @@ const refeicaoStyle = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
     },
-    cellLeft: {
+    cellLeftAlimentos: {
         flex: 1,
         textAlign: 'left',
         lineHeight: 30,
@@ -70,7 +63,7 @@ const refeicaoStyle = StyleSheet.create({
         color: '#6D6D6D',
         fontSize: 16,
     },
-    cellRigth: {
+    cellRigthAlimentos: {
         marginRight: 15,
     },
     textCellRigth: {

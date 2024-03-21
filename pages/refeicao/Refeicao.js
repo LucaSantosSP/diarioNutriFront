@@ -15,18 +15,18 @@ export default function Refeicao({ route }) {
       <ScrollView>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
-          <View style={refeicaoStyle.containerBranco}>
-            <View style={refeicaoStyle.table}>
-              <View style={refeicaoStyle.firstRow}>
-                <Text style={refeicaoStyle.firstCell}>Lista de alimentos</Text>
+          <View style={refeicaoStyle.containerCinza}>
+            <View style={refeicaoStyle.tableAlimentos}>
+              <View style={refeicaoStyle.firstRowAlimentos}>
+                <Text style={refeicaoStyle.firstCellAlimentos}>Lista de alimentos</Text>
               </View>
               
-              <View style={refeicaoStyle.row}>
-                <View style={refeicaoStyle.cellLeft}>
+              <View style={refeicaoStyle.rowAlimentos}>
+                <View style={refeicaoStyle.cellLeftAlimentos}>
                   <Text style={refeicaoStyle.firstTextCellLeft}>Ovo cozido</Text>
                   <Text style={refeicaoStyle.secondTextCellLeft}>100 gramas - 541 Kcal</Text>
                 </View>
-                <View style={[refeicaoStyle.cellRigth, refeicaoStyle.corTitulo]}>
+                <View style={[refeicaoStyle.cellRigthAlimentos]}>
                   <Text style={[refeicaoStyle.textCellRigth]}>Mais</Text>
                   <Text></Text>
                 </View>
