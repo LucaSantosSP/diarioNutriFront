@@ -114,7 +114,7 @@ export default function Menu({navigation}) {
               </TouchableOpacity>            
                 <TouchableOpacity onPress={() => navigateToRefeicao(refeicao.cdRefeicao)}>
                   <Text style={menuStyle.textoRefeicao}>    {refeicao.txRefeicao}</Text> 
-                  <Text style={menuStyle.horaRefeicao}>    00:00</Text> 
+                  <Text style={menuStyle.horaRefeicao}>    {refeicao.dtHoraRefeicao}</Text> 
                 </TouchableOpacity>
             </View>
 
