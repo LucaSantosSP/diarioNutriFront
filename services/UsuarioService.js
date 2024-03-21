@@ -112,6 +112,24 @@ class UsuarioService {
             return Promise.reject(error);
         }
     }
+
+    async getMacronutrientes() {
+        try {
+            console.log(this.token)
+            console.log(this.cdUsuario)
+            const response = await axios.get(`${this.baseURL}/refeicao/macronutrientes/${this.cdUsuario}`, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
+
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
 }
 
 const usuarioService = new UsuarioService();
