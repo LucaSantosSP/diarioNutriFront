@@ -10,6 +10,7 @@ export default function Menu({navigation}) {
     const [tabUsuarioObj, setTabUsuarioObj] = useState([]);
     const foto = tabUsuarioObj.txFoto ? { uri: tabUsuarioObj.txFoto } : require('../../images/dafaultUsuario.png');
     const [refeicoes, setRefeicoes] = useState([]);
+    const [tabMacronutrientesObj, setTabMacronutrientesObj] = useState([]);
 
     const navigateToRefeicao = (key) => {
       navigation.navigate('Refeicao', { key });
@@ -22,24 +23,38 @@ export default function Menu({navigation}) {
           const user = await UsuarioService.getUser();
           setTabUsuarioObj(user);
         } catch (error) {
-          console.error('Erro ao carregar os usuários:', error);
+          console.error('Erro ao carregar o usuário:', error);
         }
       }
 
       loadUser();
     }, []);
 
-      useEffect(() => {
-        async function loadRefeicoes() {
-          try {
-            const refeicoesList = await UsuarioService.getRefeicoes();
-            setRefeicoes(refeicoesList);
-          } catch (error) {
-            console.error('Erro ao carregar os refeições:', error);
-          }
+    useEffect(() => {
+      async function loadRefeicoes() {
+        try {
+          const refeicoesList = await UsuarioService.getRefeicoes();
+          setRefeicoes(refeicoesList);
+        } catch (error) {
+          console.error('Erro ao carregar os refeições:', error);
         }
-        loadRefeicoes();
-      }, []);
+      }
+      loadRefeicoes();
+    }, []);
+
+    useEffect(() => {
+      // Função para carregar informações do usuário
+      async function loadMacronutrientes() {
+        try {
+          const macronutrientes = await UsuarioService.getMacronutrientes();
+          setTabMacronutrientesObj(macronutrientes);
+        } catch (error) {
+          console.error('Erro ao carregar o usuário:', error);
+        }
+      }
+
+      loadMacronutrientes();
+    }, []);
   
     return (
       <ScrollView>
@@ -66,23 +81,23 @@ export default function Menu({navigation}) {
               </View>
               <View style={menuStyle.row}>
                 <Text style={menuStyle.cellLeft}>Proteína</Text>
-                <Text style={[menuStyle.cellRigth, menuStyle.corTitulo]}> % </Text>
+                <Text style={[menuStyle.cellRigth, menuStyle.corTitulo]}> {tabMacronutrientesObj.txProteina} g </Text>
               </View>
               <View style={menuStyle.row}>
                 <Text style={[menuStyle.cellLeft, menuStyle.corTitulo]}>Carboidratos</Text>
-                <Text style={menuStyle.cellRigth}> % </Text>
+                <Text style={menuStyle.cellRigth}> {tabMacronutrientesObj.txCarboidrato} g </Text>
               </View>
               <View style={menuStyle.row}>
                 <Text style={[menuStyle.cellLeft, menuStyle.corTitulo]}>Gordura</Text>
-                <Text style={menuStyle.cellRigth}> % </Text>
+                <Text style={menuStyle.cellRigth}> {tabMacronutrientesObj.txGordura} g </Text>
               </View>
               <View style={menuStyle.rowLast}>
                 <Text style={[menuStyle.cellLeft, menuStyle.corTitulo]}>Calorias total</Text>
-                <Text style={menuStyle.cellRigth}> Kcal </Text>
+                <Text style={menuStyle.cellRigth}> {tabMacronutrientesObj.txKcal} Kcal </Text>
               </View>
               <View style={menuStyle.row}>
                 <Text style={[menuStyle.cellLeft, menuStyle.corTitulo]}>Água total</Text>
-                <Text style={menuStyle.cellRigth}> ml </Text>
+                <Text style={menuStyle.cellRigth}> {tabMacronutrientesObj.txAgua} ml </Text>
               </View>
             </View>
           </View>
