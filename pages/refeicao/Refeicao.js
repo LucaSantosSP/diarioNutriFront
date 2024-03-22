@@ -12,6 +12,7 @@ export default function Refeicao({ route }) {
   const { key } = route.params;
   const cdRefeicao = { key }.key;
   const [alimentosRefeicoes, setAlimentosRefeicoes] = useState([]);
+  const [nutrientes, setNutrientes] = useState([]);
 
   useEffect(() => {
     async function loadRefeicaoAlimento() {
@@ -23,6 +24,18 @@ export default function Refeicao({ route }) {
       }
     }
     loadRefeicaoAlimento();
+  }, [cdRefeicao]);
+
+  useEffect(() => {
+    async function loadNutrientes() {
+      try {
+        const nutrientesList = await UsuarioService.getNutrientesAlimentos(cdRefeicao);
+        setNutrientes(nutrientesList);
+      } catch (error) {
+        console.error('Erro ao carregar nutrientes:', error);
+      }
+    }
+    loadNutrientes();
   }, [cdRefeicao]);
 
   return (
@@ -68,7 +81,34 @@ export default function Refeicao({ route }) {
             </View>
           </View>
 
+          <View style={refeicaoStyle.containerBranco}>
+            <View style={refeicaoStyle.table}>              
+              <View style={refeicaoStyle.row}>
+                <Text style={refeicaoStyle.cellLeft}>Proteína</Text>
+                <Text style={[refeicaoStyle.cellRigth, refeicaoStyle.corTitulo]}> {nutrientes.txProteina} g </Text>
+              </View>
+              <View style={refeicaoStyle.row}>
+                <Text style={[refeicaoStyle.cellLeft, refeicaoStyle.corTitulo]}>Carboidratos</Text>
+                <Text style={refeicaoStyle.cellRigth}> {nutrientes.txCarboidrato} g </Text>
+              </View>
+              <View style={refeicaoStyle.row}>
+                <Text style={[refeicaoStyle.cellLeft, refeicaoStyle.corTitulo]}>Gordura</Text>
+                <Text style={refeicaoStyle.cellRigth}> {nutrientes.txGordura} g </Text>
+              </View>
+              <View style={refeicaoStyle.rowLast}>
+                <Text style={[refeicaoStyle.cellLeft, refeicaoStyle.corTitulo]}>Calorias total</Text>
+                <Text style={refeicaoStyle.cellRigth}> {nutrientes.txKcal} Kcal </Text>
+              </View>
+              <View style={refeicaoStyle.row}>
+                <Text style={[refeicaoStyle.cellLeft, refeicaoStyle.corTitulo]}>Água total</Text>
+                <Text style={refeicaoStyle.cellRigth}> {nutrientes.txAgua} ml </Text>
+              </View>
+            </View>
+          </View>
 
+          <Text></Text>
+          <Text></Text>
+          <Text></Text>
           
         </View>
       </ScrollView>

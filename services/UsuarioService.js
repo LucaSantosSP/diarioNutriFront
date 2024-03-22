@@ -5,7 +5,7 @@ class UsuarioService {
     constructor() {
         this.token = null;
         this.cdUsuario = null;
-        this.baseURL = "http://192.168.3.56:8080"; // URL base da API
+        this.baseURL = "http://192.168.3.36:8080"; // URL base da API
         this.timeout = 5000; // Timeout padrão para as requisições
     }
 
@@ -61,8 +61,6 @@ class UsuarioService {
 
     async getUser() {
         try {
-            console.log(this.token)
-            console.log(this.cdUsuario)
             const response = await axios.get(`${this.baseURL}/usuario/${this.cdUsuario}`, {
                 timeout: this.timeout,
                 headers: {
@@ -79,8 +77,6 @@ class UsuarioService {
 
     async getRefeicoes() {
         try {
-            console.log(this.token)
-            console.log(this.cdUsuario)
             const response = await axios.get(`${this.baseURL}/refeicao/refeicaodia/${this.cdUsuario}`, {
                 timeout: this.timeout,
                 headers: {
@@ -97,8 +93,6 @@ class UsuarioService {
 
     async getRefeicaoAlimento(cdRefeicao) {
         try {
-            console.log(this.token)
-            console.log(this.cdUsuario)
             const response = await axios.get(`${this.baseURL}/refeicao/refeicaoalimento/${this.cdUsuario}/${cdRefeicao}`, {
                 timeout: this.timeout,
                 headers: {
@@ -115,9 +109,23 @@ class UsuarioService {
 
     async getMacronutrientes() {
         try {
-            console.log(this.token)
-            console.log(this.cdUsuario)
             const response = await axios.get(`${this.baseURL}/refeicao/macronutrientes/${this.cdUsuario}`, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
+
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    async getNutrientesAlimentos(cdRefeicao) {
+        try {
+            const response = await axios.get(`${this.baseURL}/refeicao/nutrientesAlimento/${this.cdUsuario}/${cdRefeicao}`, {
                 timeout: this.timeout,
                 headers: {
                     Accept: 'application/json',

@@ -49,7 +49,7 @@ export default function Menu({navigation}) {
           const macronutrientes = await UsuarioService.getMacronutrientes();
           setTabMacronutrientesObj(macronutrientes);
         } catch (error) {
-          console.error('Erro ao carregar o usuário:', error);
+          console.error('Erro ao carregar macronutrientes:', error);
         }
       }
 
