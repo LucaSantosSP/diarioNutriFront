@@ -1,7 +1,16 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-    container: {
+    
+  //Estilo de barra de navegação
+  navigationContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+  
+  container: {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',

@@ -61,8 +61,6 @@ class UsuarioService {
 
     async getUser() {
         try {
-            console.log(this.token)
-            console.log(this.cdUsuario)
             const response = await axios.get(`${this.baseURL}/usuario/${this.cdUsuario}`, {
                 timeout: this.timeout,
                 headers: {
@@ -79,8 +77,6 @@ class UsuarioService {
 
     async getRefeicoes() {
         try {
-            console.log(this.token)
-            console.log(this.cdUsuario)
             const response = await axios.get(`${this.baseURL}/refeicao/refeicaodia/${this.cdUsuario}`, {
                 timeout: this.timeout,
                 headers: {
@@ -89,6 +85,73 @@ class UsuarioService {
                 }
             });
 
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    async getRefeicaoAlimento(cdRefeicao) {
+        try {
+            const response = await axios.get(`${this.baseURL}/refeicao/refeicaoalimento/${this.cdUsuario}/${cdRefeicao}`, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
+
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    async getMacronutrientes() {
+        try {
+            const response = await axios.get(`${this.baseURL}/refeicao/macronutrientes/${this.cdUsuario}`, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
+
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    async getNutrientesAlimentos(cdRefeicao) {
+        try {
+            const response = await axios.get(`${this.baseURL}/refeicao/nutrientesAlimento/${this.cdUsuario}/${cdRefeicao}`, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
+
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    async cadastrarRefeicao(data) {
+        try {
+            if (!data.tabUsuarioObj) {
+                data.tabUsuarioObj = {};
+            }
+            data.tabUsuarioObj.cdUsuario = this.cdUsuario;
+            const response = await axios.post(`${this.baseURL}/refeicaotipo/gravar`, data, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
             return response.data;
         } catch (error) {
             return Promise.reject(error);
