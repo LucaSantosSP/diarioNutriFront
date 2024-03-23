@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, Alert } from 'react-native';
+import { View, ScrollView, Alert } from 'react-native';
 import NavigationButtons from '../../util/NavBar';
 import { useNavigation } from '@react-navigation/native';
 import styles from '../../style/MainStyle';
 import formStyle from '../../style/FormStyle';
-import { Button, Input } from 'react-native-elements';
+import { Text, Button, Input } from 'react-native-elements';
 import UsuarioService from '../../services/UsuarioService';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TextInputMask } from 'react-native-masked-text';
@@ -54,32 +54,45 @@ export default function Refeicao() {
   return (
     <View style={{ flex: 1, backgroundColor: 'white', }}>
       <ScrollView>
-        <Text h3 h3Style={{color: 'rgba(8, 69, 80, 1)',}}>CADASTRE-SE</Text>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text style={formStyle.textTitle} h4 h3Style={{color: 'rgba(8, 69, 80, 1)',}}>Criar refeição</Text>
 
-        <Input
-            placeholder="Nome da refeição"
-            onChangeText={value => setNomeRefeicao(value)}
-            errorMessage={errorRefeicao}
-        />
+            <Text style={formStyle.label}>Nome da refeição</Text>
+            <Input
+                style={formStyle.input}
+                placeholder="Nome da refeição"
+                placeholderTextColor="white"
+                onChangeText={value => setNomeRefeicao(value)}
+                errorMessage={errorRefeicao}
+                containerStyle={{ width: '85%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
+            />
 
-        <TextInputMask
-            type={'datetime'}
-            options={{
-            format: 'HH:mm:ss'
-            }}
-            value={hora}
-            onChangeText={value => setHora(value)}
-            keyboardType="numeric"
-            placeholder="HH:mm:ss"
-        />
+            <Text style={formStyle.label}>Hora da refeição</Text>
+            <TextInputMask
+                placeholderTextColor="white"
+                style={formStyle.input}
+                type={'datetime'}
+                options={{
+                format: 'HH:mm:ss'
+                }}
+                value={hora}
+                onChangeText={value => setHora(value)}
+                keyboardType="numeric"
+                placeholder="00:00:00"
+            />
 
-        <Button title="Adicionar refeição" 
-            buttonStyle={{
-                backgroundColor: 'rgba(8, 69, 80, 1)',
-                borderRadius: 5,
-            }}
-            onPress={() => salvar()}
-        />
+            <Button title="Adicionar refeição" 
+                buttonStyle={{
+                    backgroundColor: 'rgba(8, 69, 80, 1)',
+                    borderRadius: 5,
+                    marginTop: 35,
+                    marginBottom: 35
+                }}
+                onPress={() => salvar()}
+            />
+        </View>
       </ScrollView>
       <View style={styles.navigationContainer}>
         <NavigationButtons navigation={navigation} />
