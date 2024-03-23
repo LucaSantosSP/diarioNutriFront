@@ -138,6 +138,25 @@ class UsuarioService {
             return Promise.reject(error);
         }
     }
+
+    async cadastrarRefeicao(data) {
+        try {
+            if (!data.tabUsuarioObj) {
+                data.tabUsuarioObj = {};
+            }
+            data.tabUsuarioObj.cdUsuario = this.cdUsuario;
+            const response = await axios.post(`${this.baseURL}/refeicaotipo/gravar`, data, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
 }
 
 const usuarioService = new UsuarioService();

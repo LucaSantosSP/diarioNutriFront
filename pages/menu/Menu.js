@@ -15,6 +15,10 @@ export default function Menu({navigation}) {
     const navigateToRefeicao = (key) => {
       navigation.navigate('Refeicao', { key });
     };
+
+    const navigateToNewRefeicao = () => {
+      navigation.navigate('NovaRefeicao');
+    };
   
     useEffect(() => {
       // Função para carregar informações do usuário
@@ -102,10 +106,16 @@ export default function Menu({navigation}) {
             </View>
           </View>
 
-          <View style={menuStyle.containerBranco}>
-            <Text h4 h4Style={{color: 'rgba(0, 151, 178, 1)', marginBottom: 5}}><MaterialCommunityIcons name="silverware-variant" size={25} color={{color: 'rgba(0, 151, 178, 1)'}}/> Refeições</Text>
-            
-          </View>
+          <View style={[menuStyle.containerBranco, { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }]}>
+            <Text h4 h4Style={{ color: 'rgba(0, 151, 178, 1)', marginBottom: 5 }}>
+                <MaterialCommunityIcons name="silverware-variant" size={25} color="rgba(0, 151, 178, 1)" /> Refeições
+            </Text>
+            <TouchableOpacity onPress={() => navigateToNewRefeicao()}>
+              <Text h4 h4Style={{ color: 'rgba(0, 151, 178, 1)', marginBottom: 5 }}>
+                  <MaterialCommunityIcons name="plus-circle-outline" size={25} color="rgba(0, 151, 178, 1)" /> 
+              </Text>
+            </TouchableOpacity>
+        </View>
 
           {refeicoes.map(refeicao => (
             <View style={menuStyle.cardRefeicao} key={refeicao.cdRefeicao}>
