@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState } from 'react';
 import { Text, View, ScrollView, Alert } from 'react-native';
 import NavigationButtons from '../../util/NavBar';
 import { useNavigation } from '@react-navigation/native';
@@ -7,6 +7,7 @@ import formStyle from '../../style/FormStyle';
 import { Button, Input } from 'react-native-elements';
 import UsuarioService from '../../services/UsuarioService';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { TextInputMask } from 'react-native-masked-text';
 
 export default function Refeicao() {
   const navigation = useNavigation();
@@ -22,18 +23,17 @@ export default function Refeicao() {
 
     if (nomeRefeicao == null) {
         setErrorRefeicao("Nome da refeição campo obrigatório!")
-        error == true
+        error = true
     }
     if (hora == null) {
         setErrorHora("Hora da refeição campo obrigatório!")
-        error == true
+        error = true
     }
     return !error
-}
+  }
 
-const salvar = () => {
-    if (validar() === true){
-        
+  const salvar = () => {
+    if (validar()) {
         let data = {
             txRefeicaoTipo: nomeRefeicao,
             dtHoraRefeicaoTipo: hora,
@@ -48,15 +48,13 @@ const salvar = () => {
             console.log(data)
           Alert.alert("Houve um erro inesperado") 
         })
-
     }
-}
+  }
 
   return (
     <View style={{ flex: 1, backgroundColor: 'white', }}>
       <ScrollView>
-
-      <Text h3 h3Style={{color: 'rgba(8, 69, 80, 1)',}}>CADASTRE-SE</Text>
+        <Text h3 h3Style={{color: 'rgba(8, 69, 80, 1)',}}>CADASTRE-SE</Text>
 
         <Input
             placeholder="Nome da refeição"
@@ -64,20 +62,24 @@ const salvar = () => {
             errorMessage={errorRefeicao}
         />
 
-        <Input
-            placeholder="Hora da refeição"
+        <TextInputMask
+            type={'datetime'}
+            options={{
+            format: 'HH:mm:ss'
+            }}
+            value={hora}
             onChangeText={value => setHora(value)}
-            errorMessage={errorHora}
+            keyboardType="numeric"
+            placeholder="HH:mm:ss"
         />
-
 
         <Button title="Adicionar refeição" 
             buttonStyle={{
                 backgroundColor: 'rgba(8, 69, 80, 1)',
                 borderRadius: 5,
             }}
-        onPress={() => salvar()}/>
-
+            onPress={() => salvar()}
+        />
       </ScrollView>
       <View style={styles.navigationContainer}>
         <NavigationButtons navigation={navigation} />
