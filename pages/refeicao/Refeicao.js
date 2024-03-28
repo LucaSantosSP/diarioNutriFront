@@ -70,7 +70,7 @@ export default function Refeicao({ route }) {
               )}
 
 
-              <Button title="Adicionar seu alimento" 
+              <Button title="Adicionar alimento" 
                 containerStyle={{
                   width: 200,
                   marginHorizontal: 50,
