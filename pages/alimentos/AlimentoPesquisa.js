@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from 'react';
-import { Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity, FlatList } from 'react-native';
 import NavigationButtons from '../../util/NavBar';
 import { useNavigation } from '@react-navigation/native';
 import { Button, Input } from 'react-native-elements';
@@ -17,6 +17,16 @@ export default function AlimentoPesquisa({ route }) {
     const navigation = useNavigation();
     const { key } = route.params;
     const cdRefeicao = { key }.key;
+
+    const renderItem = ({ item }) => (
+        <TouchableOpacity style={alimentoStyle.cardAlimento} onPress={() => navigateToRefeicao(item.cdAlimento)}>   
+          <MaterialCommunityIcons name={"rice"} size={35} color="rgba(6, 63, 73, 1)"/>               
+          <View style={{ flexDirection: 'column' }}>
+            <Text style={{ fontWeight: 'bold', color: 'rgba(6, 63, 73, 1)' }}>{item.txAliemnto}</Text>
+            <Text style={{ color: 'rgba(6, 63, 73, .5)' }}>{item.txGrupo}</Text> 
+          </View>                        
+        </TouchableOpacity>            
+      );
 
     async function loadAlimentos() {
         try {
@@ -74,15 +84,11 @@ export default function AlimentoPesquisa({ route }) {
                     }}
                     onPress={() => navigateToAlimentoPesquisa()}/>
 
-                {alimentos.map(alimento => (
-                     <TouchableOpacity style={alimentoStyle.cardAlimento} /*</View>onPress={() => navigateToRefeicao(alimento.cdAlimento)}*/>   
-                        <MaterialCommunityIcons name={"rice"} size={35} color="rgba(6, 63, 73, 1)"/>               
-                        <View style={{ flexDirection: 'column' }}>
-                            <Text style={{ fontWeight: 'bold', color: 'rgba(6, 63, 73, 1)' }}>    {alimento.txAliemnto}</Text>
-                            <Text style={{ color: 'rgba(6, 63, 73, .5)' }}>    {alimento.vlKcal} Kcal</Text> 
-                        </View>                        
-                    </TouchableOpacity>            
-                ))}
+                    <FlatList
+                        data={alimentos}
+                        renderItem={renderItem}
+                        keyExtractor={(item) => item.cdAlimento.toString()}
+                    />
 
                 <Text></Text>
                 <Text></Text>

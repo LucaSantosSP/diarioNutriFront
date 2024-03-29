@@ -11,8 +11,11 @@ const alimentoStyle = StyleSheet.create({
         backgroundColor: '#F3F3F3', 
         paddingHorizontal: 20, 
         paddingVertical: 10,
-        marginBottom: 20,
+        marginBottom: 20,     
         borderRadius: 8,
+    },
+    cardAlimentoEspacamento: {
+
     },
 
     
