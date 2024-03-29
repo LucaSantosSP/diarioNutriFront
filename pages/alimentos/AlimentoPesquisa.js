@@ -26,7 +26,7 @@ export default function AlimentoPesquisa({ route }) {
             <Text style={{ color: 'rgba(6, 63, 73, .5)' }}>{item.txGrupo}</Text> 
           </View>                        
         </TouchableOpacity>            
-      );
+    );
 
     async function loadAlimentos() {
         try {
@@ -53,7 +53,6 @@ export default function AlimentoPesquisa({ route }) {
 
     return (
         <View style={{ flex: 1, backgroundColor: 'white',  }}>
-        <ScrollView>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
                 <View style={{ flexDirection: 'row', alignItems: 'center', width: '96%', marginTop: 20 }}>
@@ -95,7 +94,6 @@ export default function AlimentoPesquisa({ route }) {
                 <Text></Text>
             
             </View>
-        </ScrollView>
         <View style={refeicaoStyle.navigationContainer}>
             <NavigationButtons navigation={navigation} />
         </View>

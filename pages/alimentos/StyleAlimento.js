@@ -6,7 +6,7 @@ const alimentoStyle = StyleSheet.create({
     cardAlimento: {
         flexDirection: 'row', 
         alignItems: 'center',
-        width: '90%',
+        width: '100%',
         height: 80, 
         backgroundColor: '#F3F3F3', 
         paddingHorizontal: 20, 
@@ -15,7 +15,9 @@ const alimentoStyle = StyleSheet.create({
         borderRadius: 8,
     },
     cardAlimentoEspacamento: {
-
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     
