@@ -42,7 +42,7 @@ export default function AlimentoPesquisa({ route }) {
             
             setAlimentos(alimentosList);
         } catch (error) {
-            console.error('Erro ao carregar os alimentos:', error);
+            setAlimentos(null);
         }
     }
 
@@ -82,14 +82,17 @@ export default function AlimentoPesquisa({ route }) {
                         borderRadius: 8,
                     }}
                     onPress={() => navigateToAlimentoPesquisa()}/>
-
+                    
+                {alimentos && alimentos.length > 0 ? (
                     <FlatList
                         data={alimentos}
                         renderItem={renderItem}
                         keyExtractor={(item) => item.cdAlimento.toString()}
                     />
+                ) : (
+                    <Text style={[refeicaoStyle.semAlimento]}>Nenhum alimento encontrado!</Text>
+                )}
 
-                <Text></Text>
                 <Text></Text>
                 <Text></Text>
             
