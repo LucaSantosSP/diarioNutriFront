@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Perfil from '../perfil/Perfil';
-import NovoAlimento from '../alimentos/NovoAlimento';
+import Alimento from '../alimentos/Alimento';
 import Historico from '../historico/Historico';
 import Menu from '../menu/Menu';
 import Refeicao from '../refeicao/Refeicao';
