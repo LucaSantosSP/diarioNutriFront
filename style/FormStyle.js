@@ -36,6 +36,18 @@ const formStyle = StyleSheet.create({
         fontSize: 18,
         marginBottom: 10,
         fontWeight: 'bold',
+    },
+
+    //Estilo do input de pesquisa
+    inputPesquisa: {
+        width: '80%',
+        height: 50,
+        backgroundColor: '#F3F3F3', // Cor de fundo para o input
+        borderRadius: 5,
+        paddingHorizontal: 10,
+        color: '#616161',
+        borderWidth: 0,
+        fontSize: 18,
     }
 });
 

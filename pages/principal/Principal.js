@@ -9,6 +9,7 @@ import Refeicao from '../refeicao/Refeicao';
 import NovaRefeicao from '../refeicao/NovaRefeicao';
 import NavigationButtons from '../../util/NavBar';
 import { createStackNavigator } from '@react-navigation/stack';
+import AlimentoPesquisa from '../alimentos/AlimentoPesquisa';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -85,6 +86,7 @@ export default function Principal() {
       <Stack.Screen name="Refeicao" component={Refeicao} options={{ title: 'Refeição' }}/>
       <Stack.Screen name="NavigationButtons" component={NavigationButtons} />
       <Stack.Screen name="NovaRefeicao" component={NovaRefeicao} options={{ title: 'Nova refeição' }}/>
+      <Stack.Screen name="AlimentoPesquisa" component={AlimentoPesquisa} options={{ title: 'Alimentos' }}/>
     </Stack.Navigator>
   );
 }
