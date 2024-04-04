@@ -18,8 +18,16 @@ export default function AlimentoPesquisa({ route }) {
     const { key } = route.params;
     const cdRefeicao = { key }.key;
 
+    const navigateToAlimento = (cdAlimento, cdRefeicao) => {
+        navigation.navigate('Alimento', {
+            cdAlimento: cdAlimento,
+            cdRefeicao: cdRefeicao
+        });
+    };
+      
+
     const renderItem = ({ item }) => (
-        <TouchableOpacity style={alimentoStyle.cardAlimento} onPress={() => navigateToRefeicao(item.cdAlimento)}>   
+        <TouchableOpacity style={alimentoStyle.cardAlimento} onPress={() => navigateToAlimento(item.cdAlimento, cdRefeicao)}>   
           <MaterialCommunityIcons name={"rice"} size={35} color="rgba(6, 63, 73, 1)"/>               
           <View style={{ flexDirection: 'column' }}>
             <Text style={{ fontWeight: 'bold', color: 'rgba(6, 63, 73, 1)' }}>{item.txAliemnto}</Text>
