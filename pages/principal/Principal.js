@@ -2,7 +2,6 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Perfil from '../perfil/Perfil';
-import Alimento from '../alimentos/Alimento';
 import Historico from '../historico/Historico';
 import Menu from '../menu/Menu';
 import Refeicao from '../refeicao/Refeicao';
@@ -39,8 +38,8 @@ function MainTabNavigator() {
         }}
       />
       <Tab.Screen
-        name="NovoAlimento"
-        component={NovoAlimento}
+        name="Alimento"
+        component={Historico}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color, size }) => (
