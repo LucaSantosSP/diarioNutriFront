@@ -13,7 +13,7 @@ class NavigationButtons extends Component {
             <MaterialCommunityIcons name="home" color="#8b8b8b" size={25} style={{ margin: 0, padding: 0 }} />
             <Text style={{ marginLeft: 5, marginTop: 0, padding: 0 }}></Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('NovoAlimento')} style={{ flexDirection: 'column', alignItems: 'center' }}>
+          <TouchableOpacity onPress={() => navigation.navigate('AlimentoPesquisa')} style={{ flexDirection: 'column', alignItems: 'center' }}>
             <MaterialCommunityIcons name="plus" color="#8b8b8b" size={25} style={{ margin: 0, padding: 0 }} />
             <Text style={{ marginLeft: 5, margin: 0, padding: 0 }}></Text>
           </TouchableOpacity>

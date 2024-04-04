@@ -87,7 +87,7 @@ export default function Principal() {
       <Stack.Screen name="NavigationButtons" component={NavigationButtons} />
       <Stack.Screen name="NovaRefeicao" component={NovaRefeicao} options={{ title: 'Nova refeição' }}/>
       <Stack.Screen name="AlimentoPesquisa" component={AlimentoPesquisa} options={{ title: 'Alimentos' }}/>
-      <Stack.Screen name="Alimento" component={Alimento} options={{ title: 'Alimento' }}/>
+      <Stack.Screen name="Alimento" component={Alimento} options={{ title: 'Informações' }}/>
     </Stack.Navigator>
   );
 }
