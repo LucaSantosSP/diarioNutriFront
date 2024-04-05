@@ -38,11 +38,10 @@ export default function Alimento({ route }) {
           
         </View>
         <View style={alimentoStyle.containerBranco}>
-          <Text h4 h4Style={{color: 'rgba(0, 151, 178, 1)', marginBottom: 5}}><MaterialCommunityIcons name="notebook-edit" size={25} color={{color: 'rgba(0, 151, 178, 1)'}}/> Tabela de Nutrientes</Text>
             <View style={alimentoStyle.table}>
             <View style={alimentoStyle.firstRow}>
-                <Text style={alimentoStyle.firstCell}>Macronutrientes</Text>
-                <Text style={[alimentoStyle.cellRigth, alimentoStyle.corTitulo]}>  </Text>
+                <Text style={alimentoStyle.firstCell}>Informação Nutricional</Text>
+                <Text style={[alimentoStyle.cellRigth, alimentoStyle.corTitulo]}></Text>
               </View>
               <View style={alimentoStyle.row}>
                 <Text style={alimentoStyle.cellLeft}>Calorias</Text>
@@ -53,16 +52,24 @@ export default function Alimento({ route }) {
                 <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlCarboidrato} g </Text>
               </View>
               <View style={alimentoStyle.row}>
-                <Text style={[alimentoStyle.cellLeft, alimentoStyle.corTitulo]}>Gordura</Text>
-                <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlGordura} g </Text>
+                <Text style={[alimentoStyle.cellLeft, alimentoStyle.corTitulo]}>Colesterol</Text>
+                <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlColesterol} mg/dl </Text>
               </View>
               <View style={alimentoStyle.row}>
-                <Text style={[alimentoStyle.cellLeft, alimentoStyle.corTitulo]}>Umidade</Text>
-                <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlUmidade} ml </Text>
+                <Text style={[alimentoStyle.cellLeft, alimentoStyle.corTitulo]}>Fibra Alimentar</Text>
+                <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlFibraAlimentar} g </Text>
               </View>
-              <View style={alimentoStyle.rowLast}>
+              <View style={alimentoStyle.row}>
                 <Text style={[alimentoStyle.cellLeft, alimentoStyle.corTitulo]}>Proteina</Text>
                 <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlProteina} g </Text>
+              </View>
+              <View style={alimentoStyle.row}>
+                <Text style={[alimentoStyle.cellLeft, alimentoStyle.corTitulo]}>Sódio</Text>
+                <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlSodio} mg </Text>
+              </View>
+              <View style={alimentoStyle.rowLast}>
+                <Text style={[alimentoStyle.cellLeft, alimentoStyle.corTitulo]}>Umidade</Text>
+                <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlUmidade} ml </Text>
               </View>
             </View>
           </View>
