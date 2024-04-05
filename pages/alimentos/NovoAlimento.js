@@ -52,17 +52,19 @@ export default function NovoAlimento() {
 
             <Text style={alimentoStyle.cardCinza}>Preencha os campos abaixo para acrescentar um novo alimento ao seu banco</Text>
 
-            <Text style={formStyle.label}>Nome da refeição</Text>
+            <Text style={formStyle.labelNovoAlimento}>Nome do alimento</Text>
             <Input
                 style={formStyle.input}
                 placeholder="Nome do alimento"
                 placeholderTextColor="white"
                 onChangeText={value => setNomeAlimento(value)}
                 errorMessage={errorAlimento}
-                containerStyle={{ width: '85%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
                 inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
             />
+
+            <View style={formStyle.hrAzul}></View>
 
             <Button title="Salvar" 
                 buttonStyle={{

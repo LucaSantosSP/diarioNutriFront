@@ -38,6 +38,18 @@ const formStyle = StyleSheet.create({
         fontWeight: 'bold',
     },
 
+    //Label novo alimento
+    labelNovoAlimento: {
+        width: '85%',
+        borderRadius: 5,
+        paddingHorizontal: 10,
+        color: '#084550',
+        borderWidth: 0,
+        fontSize: 18,
+        marginBottom: 10,
+        fontWeight: 'bold',
+    },
+
     //Estilo do input de pesquisa
     inputPesquisa: {
         width: '80%',
@@ -48,6 +60,13 @@ const formStyle = StyleSheet.create({
         color: '#616161',
         borderWidth: 0,
         fontSize: 18,
+    },
+
+    //linha Azul
+    hrAzul: {
+        width: '85%',
+        borderBottomWidth: 1, 
+        borderBottomColor: '#084550',
     }
 });
 

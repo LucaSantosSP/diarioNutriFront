@@ -81,6 +81,16 @@ const alimentoStyle = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
     },
+
+    // Tela novo alimento
+    cardCinza: {
+        width: '85%',
+        backgroundColor: '#F3F3F3',
+        borderRadius: 8,
+        padding: 8,
+        marginTop: 10,
+        marginBottom: 10,
+    }
     
 });
 
