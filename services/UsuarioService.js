@@ -5,7 +5,7 @@ class UsuarioService {
     constructor() {
         this.token = null;
         this.cdUsuario = null;
-        this.baseURL = "http://192.168.3.56:8080"; // URL base da API
+        this.baseURL = "http://192.168.3.36:8080"; // URL base da API
         this.timeout = 5000; // Timeout padrão para as requisições
     }
 

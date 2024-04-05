@@ -24,6 +24,10 @@ export default function AlimentoPesquisa({ route }) {
             cdRefeicao: cdRefeicao
         });
     };
+
+    const navigateToNovoAlimento = () => {
+        navigation.navigate('NovoAlimento');
+    };
       
 
     const renderItem = ({ item }) => (
@@ -89,7 +93,7 @@ export default function AlimentoPesquisa({ route }) {
                         backgroundColor: 'rgba(8, 69, 80, 1)',
                         borderRadius: 8,
                     }}
-                    onPress={() => navigateToAlimentoPesquisa()}/>
+                    onPress={() => navigateToNovoAlimento()}/>
                     
                 {alimentos && alimentos.length > 0 ? (
                     <FlatList
