@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from 'react';
-import { Text, View, ScrollView } from 'react-native';
+import { Alert, Text, View, ScrollView } from 'react-native';
 import NavigationButtons from '../../util/NavBar';
 import { useNavigation } from '@react-navigation/native';
 import refeicaoStyle from '../refeicao/RefeicaoStyle';
@@ -26,6 +26,15 @@ export default function Alimento({ route }) {
     loadAlimento();
   }, [cdAlimento]);
 
+  console.log(cdAlimento, cdRefeicao);
+
+  const adicionarAlimento = () => {
+
+      UsuarioService.adicionarNovoAlimento(cdAlimento, cdRefeicao)
+      console.log(cdRefeicao);
+      Alert.alert("Novo alimento adicionado com sucesso!")   
+  }
+
   return (
     <View style={{ flex: 1, backgroundColor: 'white',  }}>
       <ScrollView>
@@ -33,15 +42,12 @@ export default function Alimento({ route }) {
           
 
           <Text>{tabAlimentoObj.txAliemnto}</Text>
-          <Text></Text>
-          <Text></Text>
           
         </View>
         <View style={alimentoStyle.containerBranco}>
             <View style={alimentoStyle.table}>
             <View style={alimentoStyle.firstRow}>
                 <Text style={alimentoStyle.firstCell}>Informação Nutricional</Text>
-                <Text style={[alimentoStyle.cellRigth, alimentoStyle.corTitulo]}></Text>
               </View>
               <View style={alimentoStyle.row}>
                 <Text style={alimentoStyle.cellLeft}>Calorias</Text>
@@ -72,7 +78,20 @@ export default function Alimento({ route }) {
                 <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlUmidade} ml </Text>
               </View>
             </View>
+
+            <Button title="Adicionar alimento" 
+                buttonStyle={{
+                    backgroundColor: 'rgba(8, 69, 80, 1)',
+                    borderRadius: 5,
+                    marginTop: 35,
+                    marginBottom: 35
+                }}
+                onPress={() => adicionarAlimento()}
+            />
+
           </View>
+
+
       </ScrollView>
       <View style={refeicaoStyle.navigationContainer}>
         <NavigationButtons navigation={navigation} />

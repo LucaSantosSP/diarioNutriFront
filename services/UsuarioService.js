@@ -210,6 +210,23 @@ class UsuarioService {
         }
     }
     
+    async adicionarNovoAlimento(cdAlimento, cdRefeicao) {
+        
+        try {
+            console.log("teste de envio", cdAlimento, cdRefeicao);
+            const response = await axios.get(`${this.baseURL}/alimento/adicionaralimento/${cdAlimento}/${cdRefeicao}`, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+    
 }
 
 const usuarioService = new UsuarioService();

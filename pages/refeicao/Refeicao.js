@@ -15,7 +15,7 @@ export default function Refeicao({ route }) {
   const [nutrientes, setNutrientes] = useState([]);
 
   const navigateToAlimentoPesquisa = () => {
-    navigation.navigate('AlimentoPesquisa', { cdRefeicao });
+    navigation.navigate('AlimentoPesquisa', { cdRefeicao: cdRefeicao });
   };
 
   useEffect(() => {

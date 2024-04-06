@@ -15,6 +15,7 @@ export default function NovoAlimento() {
   const [nomeAlimento, setNomeAlimento] = useState(null)
   const [nomeGrupo, setGrupo] = useState(null)
   const [proteina, setProteina] = useState(null)
+  const [gordura, setGordura] = useState(null)
   const [carboidratos, setCarboidratos] = useState(null)
   const [errorAlimento, setErrorAlimento] = useState(null)
 
@@ -36,6 +37,7 @@ export default function NovoAlimento() {
             txGrupo: nomeGrupo,
             vlProteina: proteina,
             vlCarboidrato: carboidratos,
+            vlGordura: gordura,
         }
 
         UsuarioService.cadastrarRefeicao(data)
@@ -104,6 +106,17 @@ export default function NovoAlimento() {
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
             />
 
+            <Text style={formStyle.labelNovoAlimento}>Quantidade de Gordura</Text>
+            <Input
+                style={formStyle.input}
+                placeholder="0.0 g"
+                placeholderTextColor="white"
+                onChangeText={value => setGordura(value)}
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
+            />
+
             <Button title="Salvar" 
                 buttonStyle={{
                     backgroundColor: 'rgba(8, 69, 80, 1)',
@@ -113,6 +126,11 @@ export default function NovoAlimento() {
                 }}
                 onPress={() => salvar()}
             />
+
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
         </View>
       </ScrollView>
       <View style={styles.navigationContainer}>
