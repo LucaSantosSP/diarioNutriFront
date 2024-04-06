@@ -13,7 +13,9 @@ import { TextInputMask } from 'react-native-masked-text';
 export default function NovoAlimento() {
   const navigation = useNavigation();
   const [nomeAlimento, setNomeAlimento] = useState(null)
-  const [hora, setHora] = useState(null)
+  const [nomeGrupo, setGrupo] = useState(null)
+  const [proteina, setProteina] = useState(null)
+  const [carboidratos, setCarboidratos] = useState(null)
   const [errorAlimento, setErrorAlimento] = useState(null)
 
   const validar = () => {
@@ -30,13 +32,16 @@ export default function NovoAlimento() {
   const salvar = () => {
     if (validar()) {
         let data = {
-            txAlimento: nomeAlimento,
+            txAliemnto: nomeAlimento,
+            txGrupo: nomeGrupo,
+            vlProteina: proteina,
+            vlCarboidrato: carboidratos,
         }
 
         UsuarioService.cadastrarRefeicao(data)
         .then((response) => {
           console.log(response.data)
-          Alert.alert("Nova refeição criada com sucesso!")   
+          Alert.alert("Novo alimento criado com sucesso!")   
         })
         .catch((error) => {
             console.log(data)
@@ -55,7 +60,7 @@ export default function NovoAlimento() {
             <Text style={formStyle.labelNovoAlimento}>Nome do alimento</Text>
             <Input
                 style={formStyle.input}
-                placeholder="Nome do alimento"
+                placeholder="Exemplo: banana"
                 placeholderTextColor="white"
                 onChangeText={value => setNomeAlimento(value)}
                 errorMessage={errorAlimento}
@@ -64,7 +69,40 @@ export default function NovoAlimento() {
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
             />
 
+            <Text style={formStyle.labelNovoAlimento}>Nome do grupo</Text>
+            <Input
+                style={formStyle.input}
+                placeholder="Exemplo: Frutas"
+                placeholderTextColor="white"
+                onChangeText={value => setGrupo(value)}
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
+            />
+
             <View style={formStyle.hrAzul}></View>
+
+            <Text style={formStyle.labelNovoAlimento}>Quantidade de proteína</Text>
+            <Input
+                style={formStyle.input}
+                placeholder="0.0 g"
+                placeholderTextColor="white"
+                onChangeText={value => setProteina(value)}
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
+            />
+
+            <Text style={formStyle.labelNovoAlimento}>Quantidade de carboidratos</Text>
+            <Input
+                style={formStyle.input}
+                placeholder="0.0 g"
+                placeholderTextColor="white"
+                onChangeText={value => setCarboidratos(value)}
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
+            />
 
             <Button title="Salvar" 
                 buttonStyle={{

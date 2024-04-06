@@ -67,6 +67,7 @@ const formStyle = StyleSheet.create({
         width: '85%',
         borderBottomWidth: 1, 
         borderBottomColor: '#084550',
+        marginBottom: 20,
     }
 });
 
