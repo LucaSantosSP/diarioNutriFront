@@ -17,6 +17,10 @@ export default function NovoAlimento() {
   const [proteina, setProteina] = useState(null)
   const [gordura, setGordura] = useState(null)
   const [carboidratos, setCarboidratos] = useState(null)
+  const [umidade, setUmidade] = useState(null)
+  const [fibraAlimentar, setFibraAlimentar] = useState(null)
+  const [colesterol, setColesterol] = useState(null)
+  const [sodio, setSodio] = useState(null)
   const [errorAlimento, setErrorAlimento] = useState(null)
 
   const validar = () => {
@@ -38,6 +42,10 @@ export default function NovoAlimento() {
             vlProteina: proteina,
             vlCarboidrato: carboidratos,
             vlGordura: gordura,
+            vlUmidade: umidade,
+            vlFibraAlimentar: fibraAlimentar,
+            vlColesterol: colesterol,
+            vlSodio: sodio,
         }
 
         UsuarioService.cadastrarRefeicao(data)
@@ -112,6 +120,50 @@ export default function NovoAlimento() {
                 placeholder="0.0 g"
                 placeholderTextColor="white"
                 onChangeText={value => setGordura(value)}
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
+            />
+
+            <Text style={formStyle.labelNovoAlimento}>Quantidade de Umidade</Text>
+            <Input
+                style={formStyle.input}
+                placeholder="0.0 g"
+                placeholderTextColor="white"
+                onChangeText={value => setUmidade(value)}
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
+            />
+
+            <Text style={formStyle.labelNovoAlimento}>Quantidade de Fibra Alimentar</Text>
+            <Input
+                style={formStyle.input}
+                placeholder="0.0 g"
+                placeholderTextColor="white"
+                onChangeText={value => setFibraAlimentar(value)}
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
+            />
+
+            <Text style={formStyle.labelNovoAlimento}>Quantidade de Colesterol</Text>
+            <Input
+                style={formStyle.input}
+                placeholder="0.0 g"
+                placeholderTextColor="white"
+                onChangeText={value => setColesterol(value)}
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
+            />
+
+            <Text style={formStyle.labelNovoAlimento}>Quantidade de Sódio</Text>
+            <Input
+                style={formStyle.input}
+                placeholder="0.0 g"
+                placeholderTextColor="white"
+                onChangeText={value => setSodio(value)}
                 containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
                 inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}

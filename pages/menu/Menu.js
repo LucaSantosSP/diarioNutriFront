@@ -22,32 +22,32 @@ export default function Menu({ navigation }) {
     };
 
     useEffect(() => {
-      const unsubscribe = navigation.addListener('focus', () => {
-          // Função para carregar dados toda vez que a tela é focada
-          loadData();
-      });
+        const unsubscribe = navigation.addListener('focus', () => {
+            // Função para carregar dados toda vez que a tela é focada
+            loadData();
+        });
 
-      return unsubscribe;
-  }, [navigation]);
+        return unsubscribe;
+    }, [navigation]);
 
-  const loadData = async () => {
-      try {
-          const user = await UsuarioService.getUser();
-          setTabUsuarioObj(user);
+    const loadData = async () => {
+        try {
+            const user = await UsuarioService.getUser();
+            setTabUsuarioObj(user);
 
-          const refeicoesList = await UsuarioService.getRefeicoes();
-          setRefeicoes(refeicoesList);
+            const refeicoesList = await UsuarioService.getRefeicoes();
+            setRefeicoes(refeicoesList);
 
-          const macronutrientes = await UsuarioService.getMacronutrientes();
-          setTabMacronutrientesObj(macronutrientes);
+            const macronutrientes = await UsuarioService.getMacronutrientes();
+            setTabMacronutrientesObj(macronutrientes);
 
-          if (user.txFoto) {
-              setFoto({ uri: user.txFoto });
-          }
-      } catch (error) {
-          console.error('Erro ao carregar os dados:', error);
-      }
-  };
+            if (user.txFoto) {
+                setFoto({ uri: user.txFoto });
+            }
+        } catch (error) {
+            console.error('Erro ao carregar os dados:', error);
+        }
+    };
 
     // Função para recarregar a página
     const reloadPageData = () => {
