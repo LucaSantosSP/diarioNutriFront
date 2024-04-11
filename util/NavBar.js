@@ -3,17 +3,26 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 
 class NavigationButtons extends Component {
-  handleNavigation = (screenName) => {
-    const { currentScreen, navigation } = this.props;
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentScreen: '' // Inicialmente, o nome da tela atual é vazio
+    };
+  }
 
+  handleNavigation = (screenName) => {
+    const { navigation } = this.props;
+
+    this.props.navigation.navigate(screenName);
+
+    console.log(screenName)
     // Verifique se a tela a ser navegada é diferente da tela atual
-    if (currentScreen !== screenName) {
-      // Reset a pilha de navegação e navegue para a tela especificada
-      navigation.reset({
-        index: 0,
-        routes: [{ name: screenName }],
-      });
-    }
+    navigation.reset({
+      index: 0,
+      routes: [{ name: screenName }],
+    });
+ 
+
   };
 
   render() {
