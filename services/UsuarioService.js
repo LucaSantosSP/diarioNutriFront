@@ -44,6 +44,25 @@ class UsuarioService {
         }
     }
 
+    async cadastrarAlimento(data) {
+        try {
+            if (!data.tabUsuarioObj) {
+                data.tabUsuarioObj = {};
+            }
+            data.tabUsuarioObj.cdUsuario = this.cdUsuario;
+            const response = await axios.post(`${this.baseURL}/alimento/gravar`, data, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
     //-------------------
 
     async login(data) {

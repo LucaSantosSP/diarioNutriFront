@@ -21,6 +21,7 @@ export default function NovoAlimento() {
   const [fibraAlimentar, setFibraAlimentar] = useState(null)
   const [colesterol, setColesterol] = useState(null)
   const [sodio, setSodio] = useState(null)
+  const [kcal, setKcal] = useState(null)
   const [errorAlimento, setErrorAlimento] = useState(null)
 
   const validar = () => {
@@ -46,9 +47,10 @@ export default function NovoAlimento() {
             vlFibraAlimentar: fibraAlimentar,
             vlColesterol: colesterol,
             vlSodio: sodio,
+            vlKcal: kcal,
         }
 
-        UsuarioService.cadastrarRefeicao(data)
+        UsuarioService.cadastrarAlimento(data)
         .then((response) => {
           console.log(response.data)
           Alert.alert("Novo alimento criado com sucesso!")   
@@ -74,8 +76,8 @@ export default function NovoAlimento() {
                 placeholderTextColor="white"
                 onChangeText={value => setNomeAlimento(value)}
                 errorMessage={errorAlimento}
-                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
-                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} 
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} 
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
             />
 
@@ -85,12 +87,23 @@ export default function NovoAlimento() {
                 placeholder="Exemplo: Frutas"
                 placeholderTextColor="white"
                 onChangeText={value => setGrupo(value)}
-                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
-                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} 
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} 
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
             />
 
             <View style={formStyle.hrAzul}></View>
+
+            <Text style={formStyle.labelNovoAlimento}>Quantidade de Calorias</Text>
+            <Input
+                style={formStyle.input}
+                placeholder="Kcal"
+                placeholderTextColor="white"
+                onChangeText={value => setKcal(value)}
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} 
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} 
+                inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
+            />
 
             <Text style={formStyle.labelNovoAlimento}>Quantidade de proteína</Text>
             <Input
@@ -98,8 +111,8 @@ export default function NovoAlimento() {
                 placeholder="0.0 g"
                 placeholderTextColor="white"
                 onChangeText={value => setProteina(value)}
-                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
-                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} 
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} 
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
             />
 
@@ -109,8 +122,8 @@ export default function NovoAlimento() {
                 placeholder="0.0 g"
                 placeholderTextColor="white"
                 onChangeText={value => setCarboidratos(value)}
-                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
-                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} 
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} 
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
             />
 
@@ -120,8 +133,8 @@ export default function NovoAlimento() {
                 placeholder="0.0 g"
                 placeholderTextColor="white"
                 onChangeText={value => setGordura(value)}
-                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
-                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} 
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} 
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
             />
 
@@ -131,8 +144,8 @@ export default function NovoAlimento() {
                 placeholder="0.0 g"
                 placeholderTextColor="white"
                 onChangeText={value => setUmidade(value)}
-                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
-                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} 
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} 
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
             />
 
@@ -142,8 +155,8 @@ export default function NovoAlimento() {
                 placeholder="0.0 g"
                 placeholderTextColor="white"
                 onChangeText={value => setFibraAlimentar(value)}
-                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
-                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} 
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }}
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
             />
 
@@ -153,8 +166,8 @@ export default function NovoAlimento() {
                 placeholder="0.0 g"
                 placeholderTextColor="white"
                 onChangeText={value => setColesterol(value)}
-                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
-                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} 
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} 
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
             />
 
@@ -164,8 +177,8 @@ export default function NovoAlimento() {
                 placeholder="0.0 g"
                 placeholderTextColor="white"
                 onChangeText={value => setSodio(value)}
-                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} // Removendo todas as bordas do contêiner
-                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} // Removendo a linha abaixo do input
+                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} 
+                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} 
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
             />
 
