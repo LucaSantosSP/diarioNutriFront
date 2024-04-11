@@ -6,7 +6,7 @@ class NavigationButtons extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentScreen: '' // Inicialmente, o nome da tela atual é vazio
+      currentScreen: ''
     };
   }
 
@@ -16,7 +16,6 @@ class NavigationButtons extends Component {
     this.props.navigation.navigate(screenName);
 
     console.log(screenName)
-    // Verifique se a tela a ser navegada é diferente da tela atual
     navigation.reset({
       index: 0,
       routes: [{ name: screenName }],
