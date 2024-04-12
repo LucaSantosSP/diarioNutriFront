@@ -73,26 +73,26 @@ export default function Menu({ navigation }) {
                     <View style={menuStyle.table}>
                         <View style={menuStyle.firstRow}>
                             <Text style={menuStyle.firstCell}>Macronutrientes</Text>
-                            <Text style={[menuStyle.cellRigth, menuStyle.corTitulo]}>  </Text>
+                            <Text style={[menuStyle.cellRigth]}>  </Text>
                         </View>
                         <View style={menuStyle.row}>
                             <Text style={menuStyle.cellLeft}>Proteína</Text>
-                            <Text style={[menuStyle.cellRigth, menuStyle.corTitulo]}> {tabMacronutrientesObj.txProteina} g </Text>
+                            <Text style={[menuStyle.cellRigth]}> {tabMacronutrientesObj.txProteina} g </Text>
                         </View>
                         <View style={menuStyle.row}>
-                            <Text style={[menuStyle.cellLeft, menuStyle.corTitulo]}>Carboidratos</Text>
+                            <Text style={[menuStyle.cellLeft]}>Carboidratos</Text>
                             <Text style={menuStyle.cellRigth}> {tabMacronutrientesObj.txCarboidrato} g </Text>
                         </View>
                         <View style={menuStyle.row}>
-                            <Text style={[menuStyle.cellLeft, menuStyle.corTitulo]}>Gordura</Text>
+                            <Text style={[menuStyle.cellLeft]}>Gordura</Text>
                             <Text style={menuStyle.cellRigth}> {tabMacronutrientesObj.txGordura} g </Text>
                         </View>
                         <View style={menuStyle.rowLast}>
-                            <Text style={[menuStyle.cellLeft, menuStyle.corTitulo]}>Calorias total</Text>
+                            <Text style={[menuStyle.cellLeft]}>Calorias total</Text>
                             <Text style={menuStyle.cellRigth}> {tabMacronutrientesObj.txKcal} Kcal </Text>
                         </View>
                         <View style={menuStyle.row}>
-                            <Text style={[menuStyle.cellLeft, menuStyle.corTitulo]}>Água total</Text>
+                            <Text style={[menuStyle.cellLeft]}>Água total</Text>
                             <Text style={menuStyle.cellRigth}> {tabMacronutrientesObj.txAgua} ml </Text>
                         </View>
                     </View>

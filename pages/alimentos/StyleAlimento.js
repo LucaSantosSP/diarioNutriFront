@@ -19,6 +19,16 @@ const alimentoStyle = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+
+    //Alimento
+    alimento: {
+        flex: 1,
+        textAlign: 'left',
+        lineHeight: 30,
+        marginLeft: 15,
+        color: '#0F9DB6',
+        fontSize: 18,
+    },
     
     //Tabela default 
     containerBranco: {
@@ -90,8 +100,27 @@ const alimentoStyle = StyleSheet.create({
         padding: 8,
         marginTop: 10,
         marginBottom: 10,
-    }
-    
+    },
+    tablePicker: {
+        marginBottom: 10,
+        backgroundColor: 'rgba(243, 243, 243, 1)',
+        padding: 5,
+        paddingBottom: 20,
+        borderRadius: 8,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+    },
+    textPicker: {
+        flex: 1,
+        justifyContent:'center',
+        alignItems: 'center',
+        lineHeight: 30,
+        marginLeft: 15,
+        color: '#084550',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
 });
 
 export default alimentoStyle

@@ -1,5 +1,6 @@
 import React, { useState, useEffect }  from 'react';
 import { Alert, Text, View, ScrollView } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import NavigationButtons from '../../util/NavBar';
 import { useNavigation } from '@react-navigation/native';
 import refeicaoStyle from '../refeicao/RefeicaoStyle';
@@ -13,6 +14,9 @@ export default function Alimento({ route }) {
   const navigation = useNavigation();
   const { cdAlimento, cdRefeicao } = route.params;
   const [tabAlimentoObj, setAlimento] = useState([]);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const [selectedMedida, setSelectedMedida] = useState('quantidade');
+
 
   useEffect(() => {
     async function loadAlimento() {
@@ -30,7 +34,7 @@ export default function Alimento({ route }) {
 
   const adicionarAlimento = () => {
 
-      UsuarioService.adicionarNovoAlimento(cdAlimento, cdRefeicao)
+      UsuarioService.adicionarNovoAlimento(cdAlimento, cdRefeicao, selectedQuantity)
       console.log(cdRefeicao);
       Alert.alert("Novo alimento adicionado com sucesso!")   
   }
@@ -38,12 +42,32 @@ export default function Alimento({ route }) {
   return (
     <View style={{ flex: 1, backgroundColor: 'white',  }}>
       <ScrollView>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          
-
-          <Text>{tabAlimentoObj.txAliemnto}</Text>
-          
+        <View>
+          <Text  style={[alimentoStyle.alimento]}>{tabAlimentoObj.txAliemnto}</Text>
+          <Text style={[alimentoStyle.cellRigth]}> {tabAlimentoObj.vlKcal} Kcal </Text>
         </View>
+        <View style={alimentoStyle.containerBranco}>
+        <View style={alimentoStyle.tablePicker}>
+            <View><Text style={[alimentoStyle.textPicker]}>Quantidade:</Text></View>
+            <Picker
+              selectedValue={selectedQuantity}
+              style={{ marginLeft: 10, height: 50, width: 150,  backgroundColor: 'rgba(233, 230, 230, 1)' }}
+              onValueChange={(itemValue) => setSelectedQuantity(itemValue)}>
+              {[...Array(100).keys()].map((value) => (
+                <Picker.Item key={value + 1} label={`${value + 1}`} value={value + 1} />
+              ))}
+            </Picker>
+            <View><Text style={[alimentoStyle.textPicker]}>Medida:</Text></View>
+            <Picker
+              selectedValue={selectedMedida}
+              style={{ marginLeft: 10, height: 50, width: 150, backgroundColor: 'rgba(233, 230, 230, 1)', alignItems: 'left' }}
+              onValueChange={(itemValue) => setSelectedMedida(itemValue)}>
+              <Picker.Item label="Quantidade" value="quantidade" />
+              <Picker.Item label="Gramas" value="gramas" />
+            </Picker>
+            </View>
+          </View>
+
         <View style={alimentoStyle.containerBranco}>
             <View style={alimentoStyle.table}>
             <View style={alimentoStyle.firstRow}>
@@ -51,30 +75,30 @@ export default function Alimento({ route }) {
               </View>
               <View style={alimentoStyle.row}>
                 <Text style={alimentoStyle.cellLeft}>Calorias</Text>
-                <Text style={[alimentoStyle.cellRigth, alimentoStyle.corTitulo]}> {tabAlimentoObj.vlKcal} g </Text>
+                <Text style={[alimentoStyle.cellRigth]}> {tabAlimentoObj.vlKcal} g </Text>
               </View>
               <View style={alimentoStyle.row}>
-                <Text style={[alimentoStyle.cellLeft, alimentoStyle.corTitulo]}>Carboidratos</Text>
+                <Text style={[alimentoStyle.cellLeft]}>Carboidratos</Text>
                 <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlCarboidrato} g </Text>
               </View>
               <View style={alimentoStyle.row}>
-                <Text style={[alimentoStyle.cellLeft, alimentoStyle.corTitulo]}>Colesterol</Text>
+                <Text style={[alimentoStyle.cellLeft]}>Colesterol</Text>
                 <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlColesterol} mg/dl </Text>
               </View>
               <View style={alimentoStyle.row}>
-                <Text style={[alimentoStyle.cellLeft, alimentoStyle.corTitulo]}>Fibra Alimentar</Text>
+                <Text style={[alimentoStyle.cellLeft]}>Fibra Alimentar</Text>
                 <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlFibraAlimentar} g </Text>
               </View>
               <View style={alimentoStyle.row}>
-                <Text style={[alimentoStyle.cellLeft, alimentoStyle.corTitulo]}>Proteina</Text>
+                <Text style={[alimentoStyle.cellLeft]}>Proteina</Text>
                 <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlProteina} g </Text>
               </View>
               <View style={alimentoStyle.row}>
-                <Text style={[alimentoStyle.cellLeft, alimentoStyle.corTitulo]}>Sódio</Text>
+                <Text style={[alimentoStyle.cellLeft]}>Sódio</Text>
                 <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlSodio} mg </Text>
               </View>
               <View style={alimentoStyle.rowLast}>
-                <Text style={[alimentoStyle.cellLeft, alimentoStyle.corTitulo]}>Umidade</Text>
+                <Text style={[alimentoStyle.cellLeft]}>Umidade</Text>
                 <Text style={alimentoStyle.cellRigth}> {tabAlimentoObj.vlUmidade} ml </Text>
               </View>
             </View>
@@ -88,7 +112,6 @@ export default function Alimento({ route }) {
                 }}
                 onPress={() => adicionarAlimento()}
             />
-
           </View>
 
 
