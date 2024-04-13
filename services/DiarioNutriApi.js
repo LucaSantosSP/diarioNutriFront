@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function createDiarioNutriApi(accessToken) {
   const diarioNutriApi = axios.create({
-    baseURL: 'http://192.168.3.240:8080',
+    baseURL: 'http://10.66.41.195:8080',
   });
 
   diarioNutriApi.interceptors.request.use(config => {
