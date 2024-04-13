@@ -24,7 +24,7 @@ export default function AlimentoPesquisa({ route }) {
         });
     };
 
-    const navigateToNovoAlimento = () => {
+    const navigateToNovoAlimento = () => { 
         navigation.navigate('NovoAlimento');
     };
       
