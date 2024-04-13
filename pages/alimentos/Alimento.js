@@ -47,26 +47,30 @@ export default function Alimento({ route }) {
           <Text style={[alimentoStyle.cellRigth]}> {tabAlimentoObj.vlKcal} Kcal </Text>
         </View>
         <View style={alimentoStyle.containerBranco}>
-        <View style={alimentoStyle.tablePicker}>
-            <View><Text style={[alimentoStyle.textPicker]}>Quantidade:</Text></View>
-            <Picker
-              selectedValue={selectedQuantity}
-              style={{ marginLeft: 10, height: 50, width: 150,  backgroundColor: 'rgba(233, 230, 230, 1)' }}
-              onValueChange={(itemValue) => setSelectedQuantity(itemValue)}>
-              {[...Array(100).keys()].map((value) => (
-                <Picker.Item key={value + 1} label={`${value + 1}`} value={value + 1} />
-              ))}
-            </Picker>
-            <View><Text style={[alimentoStyle.textPicker]}>Medida:</Text></View>
-            <Picker
-              selectedValue={selectedMedida}
-              style={{ marginLeft: 10, height: 50, width: 150, backgroundColor: 'rgba(233, 230, 230, 1)', alignItems: 'left' }}
-              onValueChange={(itemValue) => setSelectedMedida(itemValue)}>
-              <Picker.Item label="Quantidade" value="quantidade" />
-              <Picker.Item label="Gramas" value="gramas" />
-            </Picker>
+          <View style={alimentoStyle.tablePicker}>
+            <View style={{ flexDirection: 'column' }}>
+              <Text style={[alimentoStyle.textPicker]}>Quantidade:</Text>
+              <View style={{ flexDirection: 'row' }}>
+                <Picker
+                  selectedValue={selectedQuantity}
+                  style={{ height: 50, width: 150, marginRight: '10%', backgroundColor: 'rgba(233, 230, 230, 1)' }}
+                  onValueChange={(itemValue) => setSelectedQuantity(itemValue)}>
+                  {[...Array(100).keys()].map((value) => (
+                    <Picker.Item key={value + 1} label={`${value + 1}`} value={value + 1} />
+                  ))}
+                </Picker>
+                <Picker
+                  selectedValue={selectedMedida}
+                  style={{ height: 50, width: 150, backgroundColor: 'rgba(233, 230, 230, 1)', alignItems: 'left' }}
+                  onValueChange={(itemValue) => setSelectedMedida(itemValue)}>
+                  <Picker.Item label="Gramas" value="gramas" />
+                  <Picker.Item label="Unidade" value="unidade" />
+                </Picker>
+              </View>
             </View>
           </View>
+        </View>
+
 
         <View style={alimentoStyle.containerBranco}>
             <View style={alimentoStyle.table}>
@@ -114,6 +118,8 @@ export default function Alimento({ route }) {
             />
           </View>
 
+          <Text></Text>
+          <Text></Text>
 
       </ScrollView>
       <View style={refeicaoStyle.navigationContainer}>
