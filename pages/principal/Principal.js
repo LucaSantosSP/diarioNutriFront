@@ -2,13 +2,15 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Perfil from '../perfil/Perfil';
-import NovoAlimento from '../alimentos/NovoAlimento';
 import Historico from '../historico/Historico';
 import Menu from '../menu/Menu';
 import Refeicao from '../refeicao/Refeicao';
 import NovaRefeicao from '../refeicao/NovaRefeicao';
 import NavigationButtons from '../../util/NavBar';
 import { createStackNavigator } from '@react-navigation/stack';
+import AlimentoPesquisa from '../alimentos/AlimentoPesquisa';
+import Alimento from '../alimentos/Alimento';
+import NovoAlimento from '../alimentos/NovoAlimento';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -37,8 +39,8 @@ function MainTabNavigator() {
         }}
       />
       <Tab.Screen
-        name="NovoAlimento"
-        component={NovoAlimento}
+        name="Alimento"
+        component={Historico}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color, size }) => (
@@ -85,6 +87,9 @@ export default function Principal() {
       <Stack.Screen name="Refeicao" component={Refeicao} options={{ title: 'Refeição' }}/>
       <Stack.Screen name="NavigationButtons" component={NavigationButtons} />
       <Stack.Screen name="NovaRefeicao" component={NovaRefeicao} options={{ title: 'Nova refeição' }}/>
+      <Stack.Screen name="AlimentoPesquisa" component={AlimentoPesquisa} options={{ title: 'Alimentos' }}/>
+      <Stack.Screen name="Alimento" component={Alimento} options={{ title: 'Informações' }}/>
+      <Stack.Screen name="NovoAlimento" component={NovoAlimento} options={{ title: 'Novo Alimento' }}/>
     </Stack.Navigator>
   );
 }

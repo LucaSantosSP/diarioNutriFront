@@ -14,6 +14,10 @@ export default function Refeicao({ route }) {
   const [alimentosRefeicoes, setAlimentosRefeicoes] = useState([]);
   const [nutrientes, setNutrientes] = useState([]);
 
+  const navigateToAlimentoPesquisa = () => {
+    navigation.navigate('AlimentoPesquisa', { cdRefeicao: cdRefeicao });
+  };
+
   useEffect(() => {
     async function loadRefeicaoAlimento() {
       try {
@@ -66,17 +70,18 @@ export default function Refeicao({ route }) {
               )}
 
 
-              <Button title="Adicionar seu alimento" 
-              containerStyle={{
-                width: 200,
-                marginHorizontal: 50,
-                marginVertical: 10,
-                marginTop: 30,
-              }}
-              buttonStyle={{
-                backgroundColor: 'rgba(8, 69, 80, 1)',
-                borderRadius: 8,
-              }}/>
+              <Button title="Adicionar alimento" 
+                containerStyle={{
+                  width: 200,
+                  marginHorizontal: 50,
+                  marginVertical: 10,
+                  marginTop: 30,
+                }}
+                buttonStyle={{
+                  backgroundColor: 'rgba(8, 69, 80, 1)',
+                  borderRadius: 8,
+                }}
+                onPress={() => navigateToAlimentoPesquisa()}/>
 
             </View>
           </View>
