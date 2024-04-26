@@ -39,8 +39,8 @@ function MainTabNavigator() {
         }}
       />
       <Tab.Screen
-        name="Alimento"
-        component={Historico}
+        name="Alimentos"
+        component={AlimentoPesquisa}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color, size }) => (

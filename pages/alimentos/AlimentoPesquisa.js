@@ -15,7 +15,7 @@ export default function AlimentoPesquisa({ route }) {
     const [alimentos, setAlimentos] = useState([]);
 
     const navigation = useNavigation();
-    const cdRefeicao = route.params.cdRefeicao;
+    const cdRefeicao = route.params?.cdRefeicao;
 
     const navigateToAlimento = (cdAlimento, cdRefeicao) => {
         navigation.navigate('Alimento', {
