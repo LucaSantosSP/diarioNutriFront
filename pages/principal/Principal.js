@@ -11,6 +11,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import AlimentoPesquisa from '../alimentos/AlimentoPesquisa';
 import Alimento from '../alimentos/Alimento';
 import NovoAlimento from '../alimentos/NovoAlimento';
+import Receitas from '../receitas/Receitas';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -39,6 +40,16 @@ function MainTabNavigator() {
         }}
       />
       <Tab.Screen
+        name="Historico"
+        component={Historico}
+        options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="calendar" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
         name="Alimentos"
         component={AlimentoPesquisa}
         options={{
@@ -49,12 +60,12 @@ function MainTabNavigator() {
         }}
       />
       <Tab.Screen
-        name="Historico"
-        component={Historico}
+        name="Receitas"
+        component={Receitas}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="calendar" color={color} size={size} />
+            <MaterialCommunityIcons name="receipt" color={color} size={size} />
           ),
         }}
       />

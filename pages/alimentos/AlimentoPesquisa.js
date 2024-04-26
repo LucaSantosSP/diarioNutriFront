@@ -9,6 +9,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import refeicaoStyle from '../refeicao/RefeicaoStyle';
 import formStyle from '../../style/FormStyle';
 import alimentoStyle from './StyleAlimento';
+import Receitas from '../receitas/Receitas';
 
 export default function AlimentoPesquisa({ route }) {
     const [nomeAlimento, setNomeAlimento] = useState(null)
@@ -27,6 +28,8 @@ export default function AlimentoPesquisa({ route }) {
     const navigateToNovoAlimento = () => { 
         navigation.navigate('NovoAlimento');
     };
+
+    console.log(cdRefeicao);
       
 
     const renderItem = ({ item }) => (
@@ -108,9 +111,12 @@ export default function AlimentoPesquisa({ route }) {
                 <Text></Text>
             
             </View>
-        <View style={refeicaoStyle.navigationContainer}>
-            <NavigationButtons navigation={navigation} />
-        </View>
+            {cdRefeicao !== null && (
+                <View style={refeicaoStyle.navigationContainer}>
+                    <NavigationButtons navigation={navigation} />
+                </View>
+            )}
+
         </View>
     );
 };

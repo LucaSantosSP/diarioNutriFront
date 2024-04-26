@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
+import Receitas from '../pages/receitas/Receitas';
 
 class NavigationButtons extends Component {
   constructor(props) {
@@ -32,12 +33,16 @@ class NavigationButtons extends Component {
             <MaterialCommunityIcons name="home" color="#8b8b8b" size={25} style={{ margin: 0, padding: 0 }} />
             <Text style={{ marginLeft: 5, marginTop: 0, padding: 0 }}></Text>
           </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.handleNavigation('Historico')} style={{ flexDirection: 'column', alignItems: 'center' }}>
+            <MaterialCommunityIcons name="calendar" color="#8b8b8b" size={25} style={{ margin: 0, padding: 0 }} />
+            <Text style={{ marginLeft: 5, margin: 0, padding: 0 }}></Text>
+          </TouchableOpacity>
           <TouchableOpacity onPress={() => this.handleNavigation('AlimentoPesquisa')} style={{ flexDirection: 'column', alignItems: 'center' }}>
             <MaterialCommunityIcons name="plus" color="#8b8b8b" size={25} style={{ margin: 0, padding: 0 }} />
             <Text style={{ marginLeft: 5, margin: 0, padding: 0 }}></Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.handleNavigation('Historico')} style={{ flexDirection: 'column', alignItems: 'center' }}>
-            <MaterialCommunityIcons name="calendar" color="#8b8b8b" size={25} style={{ margin: 0, padding: 0 }} />
+          <TouchableOpacity onPress={() => this.handleNavigation('Receitas')} style={{ flexDirection: 'column', alignItems: 'center' }}>
+            <MaterialCommunityIcons name="receipt" color="#8b8b8b" size={25} style={{ margin: 0, padding: 0 }} />
             <Text style={{ marginLeft: 5, margin: 0, padding: 0 }}></Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.handleNavigation('Perfil')} style={{ flexDirection: 'column', alignItems: 'center' }}>
