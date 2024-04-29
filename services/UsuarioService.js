@@ -245,6 +245,38 @@ class UsuarioService {
             return Promise.reject(error);
         }
     }
+
+    async getReceitas() {
+        try {
+            const response = await axios.get(`${this.baseURL}/receita/pesquisaByUsuario/${this.cdUsuario}`, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
+
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    async getReceitasByPesquisa(txTitulo) {
+        try {
+            const response = await axios.get(`${this.baseURL}/receita/pesquisabypesquisa/${this.cdUsuario}/${txTitulo}`, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
+
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
     
 }
 
