@@ -277,6 +277,47 @@ class UsuarioService {
             return Promise.reject(error);
         }
     }
+
+    async getMacronutrientesByDate() {
+        try {
+
+            console.log("Entrou");
+            const currentDate = new Date();
+            const formattedDate = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
+
+            console.log("Entrou mesmo");
+            const response = await axios.get(`${this.baseURL}/refeicao/macronutrientesbydate/${this.cdUsuario}/${formattedDate}`, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
+
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    async getMacronutrientesByDatePesquisa(dtRefeicao) {
+        try {
+            
+            const formattedDate = dtRefeicao.toISOString().split('T')[0];
+        
+            const response = await axios.get(`${this.baseURL}/refeicao/macronutrientesbydate/${this.cdUsuario}/${formattedDate}`, {
+                timeout: this.timeout,
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${this.token}`
+                }
+            });
+
+            return response.data;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
     
 }
 

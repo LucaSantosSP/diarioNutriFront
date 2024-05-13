@@ -40,7 +40,7 @@ function MainTabNavigator() {
         }}
       />
       <Tab.Screen
-        name="Historico"
+        name="Histórico"
         component={Historico}
         options={{
           tabBarLabel: '',
