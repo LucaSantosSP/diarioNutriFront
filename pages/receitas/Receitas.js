@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from 'react';
-import { Text, View, ScrollView, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity, FlatList, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Button, Input } from 'react-native-elements';
 import UsuarioService from '../../services/UsuarioService';
@@ -8,10 +8,13 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import refeicaoStyle from '../refeicao/RefeicaoStyle';
 import formStyle from '../../style/FormStyle';
 import alimentoStyle from '../alimentos/StyleAlimento';
+import receitaStyle from './ReceitaStyle';
 
 export default function Receitas() {
     const [nomeReceita, setNomeReceita] = useState(null)
     const [receitas, setReceitas] = useState([]);
+
+    const foto = require('../../images/strogonoff.png');
 
     const navigation = useNavigation();
 
@@ -26,11 +29,17 @@ export default function Receitas() {
     };     
 
     const renderItem = ({ item }) => (
-        <TouchableOpacity style={[alimentoStyle.cardAlimento, { width: '100%' }]} onPress={() => navigateToReceita(item.cdReceita)}>   
-            <MaterialCommunityIcons name={"book-open-page-variant"} size={35} color="rgba(6, 63, 73, 1)"/>               
+        <TouchableOpacity style={[receitaStyle.cardAlimento, { width: '100%' }]} onPress={() => navigateToReceita(item.cdReceita)}>   
+            <Image
+                source={foto}
+                style={receitaStyle.imagem}
+            />             
             <View style={{ flexDirection: 'column' }}>
-                <Text style={{ fontWeight: 'bold', color: 'rgba(6, 63, 73, 1)' }}>{item.txTitulo}</Text>
-                <Text style={{ color: 'rgba(6, 63, 73, .5)' }}>{item.txTipo}</Text> 
+                <Text style={{ fontWeight: 'bold', color: 'rgba(207, 235, 240, 1)' }}>{item.txTitulo}</Text>
+                <Text style={{ color: 'rgba(160, 188, 193, 1)' }}>{item.txTipo}</Text> 
+                <Text></Text> 
+                <Text style={{ fontWeight: 'bold', color: 'rgba(207, 235, 240, 1)', alignItems: 'center' }}>Valor Nutricional</Text> 
+                <Text style={{ fontWeight: 'bold', color: 'rgba(207, 235, 240, 1)' }}>{item.vlKcal} Kcal</Text> 
             </View>                        
         </TouchableOpacity>            
     );

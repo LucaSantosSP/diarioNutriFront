@@ -55,7 +55,7 @@ function MainTabNavigator() {
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="plus" color={color} size={size} />
+            <MaterialCommunityIcons name="receipt" color={color} size={size} />
           ),
         }}
       />
@@ -65,7 +65,7 @@ function MainTabNavigator() {
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="receipt" color={color} size={size} />
+            <MaterialCommunityIcons name="notebook-edit" color={color} size={size} />
           ),
         }}
       />

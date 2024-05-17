@@ -38,11 +38,11 @@ class NavigationButtons extends Component {
             <Text style={{ marginLeft: 5, margin: 0, padding: 0 }}></Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.handleNavigation('AlimentoPesquisa')} style={{ flexDirection: 'column', alignItems: 'center' }}>
-            <MaterialCommunityIcons name="plus" color="#8b8b8b" size={25} style={{ margin: 0, padding: 0 }} />
+            <MaterialCommunityIcons name="receipt" color="#8b8b8b" size={25} style={{ margin: 0, padding: 0 }} />
             <Text style={{ marginLeft: 5, margin: 0, padding: 0 }}></Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.handleNavigation('Receitas')} style={{ flexDirection: 'column', alignItems: 'center' }}>
-            <MaterialCommunityIcons name="receipt" color="#8b8b8b" size={25} style={{ margin: 0, padding: 0 }} />
+            <MaterialCommunityIcons name="notebook-edit" color="#8b8b8b" size={25} style={{ margin: 0, padding: 0 }} />
             <Text style={{ marginLeft: 5, margin: 0, padding: 0 }}></Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.handleNavigation('Perfil')} style={{ flexDirection: 'column', alignItems: 'center' }}>
