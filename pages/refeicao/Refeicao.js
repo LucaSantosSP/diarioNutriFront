@@ -100,13 +100,9 @@ export default function Refeicao({ route }) {
                 <Text style={[refeicaoStyle.cellLeft, refeicaoStyle.corTitulo]}>Gordura</Text>
                 <Text style={refeicaoStyle.cellRigth}> {nutrientes.txGordura} g </Text>
               </View>
-              <View style={refeicaoStyle.rowLast}>
+              <View style={refeicaoStyle.row}>
                 <Text style={[refeicaoStyle.cellLeft, refeicaoStyle.corTitulo]}>Calorias total</Text>
                 <Text style={refeicaoStyle.cellRigth}> {nutrientes.txKcal} Kcal </Text>
-              </View>
-              <View style={refeicaoStyle.row}>
-                <Text style={[refeicaoStyle.cellLeft, refeicaoStyle.corTitulo]}>Água total</Text>
-                <Text style={refeicaoStyle.cellRigth}> {nutrientes.txAgua} ml </Text>
               </View>
             </View>
           </View>

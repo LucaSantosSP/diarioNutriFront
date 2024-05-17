@@ -87,13 +87,9 @@ export default function Menu({ navigation }) {
                             <Text style={[menuStyle.cellLeft]}>Gordura</Text>
                             <Text style={menuStyle.cellRigth}> {tabMacronutrientesObj.txGordura} g </Text>
                         </View>
-                        <View style={menuStyle.rowLast}>
+                        <View style={menuStyle.row}>
                             <Text style={[menuStyle.cellLeft]}>Calorias total</Text>
                             <Text style={menuStyle.cellRigth}> {tabMacronutrientesObj.txKcal} Kcal </Text>
-                        </View>
-                        <View style={menuStyle.row}>
-                            <Text style={[menuStyle.cellLeft]}>Água total</Text>
-                            <Text style={menuStyle.cellRigth}> {tabMacronutrientesObj.txAgua} ml </Text>
                         </View>
                     </View>
                 </View>

@@ -17,7 +17,6 @@ export default function NovoAlimento() {
   const [proteina, setProteina] = useState(null)
   const [gordura, setGordura] = useState(null)
   const [carboidratos, setCarboidratos] = useState(null)
-  const [umidade, setUmidade] = useState(null)
   const [fibraAlimentar, setFibraAlimentar] = useState(null)
   const [colesterol, setColesterol] = useState(null)
   const [sodio, setSodio] = useState(null)
@@ -43,7 +42,6 @@ export default function NovoAlimento() {
             vlProteina: proteina,
             vlCarboidrato: carboidratos,
             vlGordura: gordura,
-            vlUmidade: umidade,
             vlFibraAlimentar: fibraAlimentar,
             vlColesterol: colesterol,
             vlSodio: sodio,
@@ -133,17 +131,6 @@ export default function NovoAlimento() {
                 placeholder="0.0 g"
                 placeholderTextColor="white"
                 onChangeText={value => setGordura(value)}
-                containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} 
-                inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} 
-                inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
-            />
-
-            <Text style={formStyle.labelNovoAlimento}>Quantidade de Umidade</Text>
-            <Input
-                style={formStyle.input}
-                placeholder="0.0 g"
-                placeholderTextColor="white"
-                onChangeText={value => setUmidade(value)}
                 containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} 
                 inputContainerStyle={{ borderBottomWidth: 0, margin: 0, padding: 0 }} 
                 inputStyle={{ borderWidth: 0, margin: 0, padding: 0 }}
