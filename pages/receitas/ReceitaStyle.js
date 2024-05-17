@@ -82,6 +82,60 @@ const receitaStyle = StyleSheet.create({
         borderRadius: 8,
     },
 
+    //****************TELA REICEITA************
+
+    //Foto Tela Receita
+    imagemReceita: {
+        width: '85%',
+        height: 120,
+        borderTopLeftRadius : 8,
+        marginTop: 20,
+    },
+    containerTopReiceita: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '85%',
+        backgroundColor: '#F3F3F3',
+    },
+    leftText: {
+        flex: 1,
+        textAlign: 'left',
+        paddingLeft: 5,
+        color: '#858585'
+    },
+    rightText: {
+        flex: 1,
+        textAlign: 'right',
+        color: '#858585'
+    },
+
+    //card Ingredientes
+    containerIngredientes: {
+        justifyContent: 'space-between',
+        width: '85%',
+        backgroundColor: '#F3F3F3',
+        marginTop: 20,
+    },
+
+    titleText: {
+        flex: 1,
+        textAlign: 'left',
+        paddingLeft: 10,
+        color: '#0097B2',
+        fontWeight: 'bold',
+        marginBottom: 10,
+    },
+
+    conteudoText: {
+        flex: 1,
+        textAlign: 'left',
+        paddingLeft: 10,
+        color: '#333',
+    },
+
+
+
 });
 
 export default receitaStyle

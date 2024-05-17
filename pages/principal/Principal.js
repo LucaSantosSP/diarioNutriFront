@@ -12,6 +12,7 @@ import AlimentoPesquisa from '../alimentos/AlimentoPesquisa';
 import Alimento from '../alimentos/Alimento';
 import NovoAlimento from '../alimentos/NovoAlimento';
 import Receitas from '../receitas/Receitas';
+import Receita from '../receitas/Receita';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -101,6 +102,7 @@ export default function Principal() {
       <Stack.Screen name="AlimentoPesquisa" component={AlimentoPesquisa} options={{ title: 'Alimentos' }}/>
       <Stack.Screen name="Alimento" component={Alimento} options={{ title: 'Informações' }}/>
       <Stack.Screen name="NovoAlimento" component={NovoAlimento} options={{ title: 'Novo Alimento' }}/>
+      <Stack.Screen name="Receita" component={Receita} options={{ title: 'Receita' }}/>
     </Stack.Navigator>
   );
 }

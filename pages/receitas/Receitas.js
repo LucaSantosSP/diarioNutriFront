@@ -7,7 +7,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import refeicaoStyle from '../refeicao/RefeicaoStyle';
 import formStyle from '../../style/FormStyle';
-import alimentoStyle from '../alimentos/StyleAlimento';
 import receitaStyle from './ReceitaStyle';
 
 export default function Receitas() {
@@ -19,6 +18,7 @@ export default function Receitas() {
     const navigation = useNavigation();
 
     const navigateToReceita = (cdReceita) => {
+        console.log(cdReceita + "2 = if true");
         navigation.navigate('Receita', {
             cdReceita: cdReceita
         });
