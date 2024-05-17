@@ -303,7 +303,8 @@ class UsuarioService {
     async getMacronutrientesByDatePesquisa(dtRefeicao) {
         try {
             
-            const formattedDate = dtRefeicao.toISOString().split('T')[0];
+            const [day, month, year] = dtRefeicao.split('/');
+            const formattedDate = `${year}-${month}-${day}`;
         
             const response = await axios.get(`${this.baseURL}/refeicao/macronutrientesbydate/${this.cdUsuario}/${formattedDate}`, {
                 timeout: this.timeout,

@@ -161,7 +161,7 @@ export default function NovoAlimento() {
             <Text style={formStyle.labelNovoAlimento}>Quantidade de Sódio</Text>
             <Input
                 style={formStyle.input}
-                placeholder="0.0 g"
+                placeholder="0.0 mg"
                 placeholderTextColor="white"
                 onChangeText={value => setSodio(value)}
                 containerStyle={{ width: '90%', borderWidth: 0, margin: 0, padding: 0 }} 
