@@ -97,7 +97,7 @@ export default function Historico() {
             <MaterialCommunityIcons name={"magnify"} size={35} color="#616161" style={{ marginBottom: 20 }} />
           </TouchableOpacity>
           <TextInputMask
-                placeholder="Data de nascimento"
+                placeholder="Digite uma Data"
                 type={'datetime'}
                 options={{
                     format: 'DD/MM/YYYY'
