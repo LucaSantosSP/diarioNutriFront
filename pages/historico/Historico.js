@@ -132,7 +132,7 @@ export default function Historico() {
             }}
             accessor="value"
             backgroundColor="transparent"
-            paddingLeft="15"
+            paddingLeft="5"
             absolute
           />
         </View>
