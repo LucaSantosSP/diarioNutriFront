@@ -28,6 +28,7 @@ const alimentoStyle = StyleSheet.create({
         marginLeft: 15,
         color: '#0F9DB6',
         fontSize: 18,
+        marginTop: '5%'
     },
     
     //Tabela default 
