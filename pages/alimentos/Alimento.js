@@ -53,15 +53,15 @@ export default function Alimento({ route }) {
               <View style={{ flexDirection: 'row' }}>
                 <Picker
                   selectedValue={selectedQuantity}
-                  style={{ height: 50, width: 150, marginRight: '10%', backgroundColor: 'rgba(233, 230, 230, 1)' }}
+                  style={{ height: 50, width: 138, marginRight: '5%', backgroundColor: 'rgba(233, 230, 230, 1)' }}
                   onValueChange={(itemValue) => setSelectedQuantity(itemValue)}>
                   {[...Array(100).keys()].map((value) => (
-                    <Picker.Item key={value + 1} label={`${value + 1}`} value={value + 1} />
+                    <Picker.Item key={value + 1} label={`${value + 1}`} value={value + 1}/>
                   ))}
                 </Picker>
                 <Picker
                   selectedValue={selectedMedida}
-                  style={{ height: 50, width: 150, backgroundColor: 'rgba(233, 230, 230, 1)', alignItems: 'left' }}
+                  style={{ height: 50, width: 140, backgroundColor: 'rgba(233, 230, 230, 1)', alignItems: 'left' }}
                   onValueChange={(itemValue) => setSelectedMedida(itemValue)}>
                   <Picker.Item label="Gramas" value="gramas" />
                   <Picker.Item label="Unidade" value="unidade" />
