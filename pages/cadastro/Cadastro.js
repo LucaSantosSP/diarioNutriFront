@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Alert, View } from 'react-native';
-import { Text, Input, Button, CheckBox } from 'react-native-elements';
+import { Text, Input, Button } from 'react-native-elements';
 import styles from '../../style/MainStyle';
 import { TextInputMask } from 'react-native-masked-text';
 import UsuarioService from '../../services/UsuarioService';
@@ -33,27 +33,27 @@ export default function Cadastro({navigation}) {
 
         if (nome == null) {
             setErrorNome("Nome campo obrigatório!")
-            error == true
+            error = true
         }
         if (email == null) {
             setErrorEmail("E-mail campo obrigatório!")
-            error == true
+            error = true
         }
         if (!rEmail.test(String(email).toLowerCase())) {
             setErrorEmail("Preencha um e-mail real!")
-            error == true
+            error = true
         }
         if (senha == null) {
             setErrorSenha("Senha campo obrigatório!")
-            error == true
+            error = true
         }
         if (altura == null) {
             setErrorAltura("Altura campo obrigatório!")
-            error == true
+            error = true
         }
         if (peso == null) {
             setErrorPeso("Peso campo obrigatório!")
-            error == true
+            error = true
         }
         return !error
     }
@@ -125,20 +125,39 @@ export default function Cadastro({navigation}) {
                 />
             </View>
 
-            <Input
-                placeholder="Altura"
-                onChangeText={value => setAltura(value)}
-                keyboardType="number-pad"
-                errorMessage={errorAltura}
-            />
+            <View style={styles.containerMask}>
+                <TextInputMask
+                    placeholder="Altura"
+                    type={'custom'}
+                    options={{
+                        mask: '9.99'
+                    }}
+                    value={altura}
+                    onChangeText={value => {
+                        setAltura(value)
+                    }}
+                    keyboardType="numeric"
+                    style={styles.maskedInput}
+                    errorMessage={errorAltura}
+                />
+            </View>
 
-            <Input
-                placeholder="Peso"
-                onChangeText={value => setPeso(value)}
-                keyboardType="number-pad"
-                errorMessage={errorPeso}
-            />
-
+            <View style={styles.containerMask}>
+                <TextInputMask
+                    placeholder="Peso"
+                    type={'custom'}
+                    options={{
+                        mask: '999'
+                    }}
+                    value={peso}
+                    onChangeText={value => {
+                        setPeso(value)
+                    }}
+                    keyboardType="numeric"
+                    style={styles.maskedInput}
+                    errorMessage={errorPeso}
+                />
+            </View>
 
             <Button title="Entrar" 
                 buttonStyle={{
@@ -150,5 +169,3 @@ export default function Cadastro({navigation}) {
         </View>
     );
 }
-
-
